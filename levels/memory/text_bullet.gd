@@ -4,6 +4,8 @@ export var text = ""
 var progress = 0
 var original_text
 
+export(Vector3) var velocity;
+
 func _ready():
 	$Text/Begin.text = ""
 	$Text/End.text = text
