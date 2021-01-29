@@ -29,3 +29,6 @@ func enter_character(chr):
         $Text/Begin.text = text.substr(0, progress)
         $Text/End.text = text.substr(progress)
         
+func _on_area_entered(area):
+    area.damage()
+    queue_free()

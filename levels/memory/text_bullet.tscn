@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/memory/text_bullet.gd" type="Script" id=1]
 [ext_resource path="res://arcadeclassic.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 4.0
 
 [sub_resource type="DynamicFont" id=1]
 extra_spacing_top = 3
@@ -11,9 +14,13 @@ font_data = ExtResource( 2 )
 size = 19
 font_data = ExtResource( 2 )
 
-[node name="TextBullet" type="Node2D"]
+[node name="TextBullet" type="Area2D"]
+collision_mask = 0
 script = ExtResource( 1 )
 text = "SampleText"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
 
 [node name="Text" type="HBoxContainer" parent="."]
 anchor_left = 0.5
@@ -51,3 +58,4 @@ custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
