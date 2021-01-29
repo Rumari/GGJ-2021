@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://levels/memory/text_bullet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/memory/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/memory/memory.gd" type="Script" id=4]
 
 [node name="Memory" type="Node2D"]
 script = ExtResource( 4 )
+average_bullet_velocity = 20.0
+velocity_bound = 0.7
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
-[node name="TextBullet" parent="." instance=ExtResource( 1 )]
-position = Vector2( 348.093, 55.6257 )
-text = "ABCDEFGH"
+[node name="TextBullets" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
