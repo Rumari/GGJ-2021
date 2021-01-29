@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://levels/titlescreen/mainmenu.png" type="Texture" id=2]
+[ext_resource path="res://levels/titlescreen/arcadeclassic.tres" type="DynamicFont" id=3]
+[ext_resource path="res://levels/titlescreen/titlescreen.ogg" type="AudioStream" id=4]
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.18921
+margin_top = 1.18921
+margin_right = 1.18921
+margin_bottom = 1.18921
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.741
+anchor_top = 0.823
+anchor_right = 0.741
+anchor_bottom = 0.823
+margin_left = -265.784
+margin_top = -105.8
+margin_right = 265.216
+margin_bottom = 106.2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 187.0
+margin_top = 44.0
+margin_right = 344.0
+margin_bottom = 168.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_right = 157.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 3 )
+text = "Start"
+flat = true
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 157.0
+margin_bottom = 124.0
+custom_fonts/font = ExtResource( 3 )
+text = "Exit"
+flat = true
+
+[node name="TitleScreen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
