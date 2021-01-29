@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://levels/memory/text_bullet.tscn" type="PackedScene" id=1]
+
+[node name="Memory" type="Node"]
+
+[node name="TextBullet" parent="." instance=ExtResource( 1 )]
+position = Vector2( 248.22, 107.37 )
+text = "aaaa"
