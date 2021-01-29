@@ -128,10 +128,11 @@ anchor_left = 0.205
 anchor_top = 0.747
 anchor_right = 0.205
 anchor_bottom = 0.747
-margin_left = -108.834
-margin_top = -115.97
-margin_right = 58.1662
-margin_bottom = 116.03
+margin_left = -108.92
+margin_top = -109.2
+margin_right = 58.08
+margin_bottom = 115.8
+use_top_left = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -140,15 +141,23 @@ __meta__ = {
 position = Vector2( 97.5807, 111.723 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 12 )
-frame = 2
+frame = 3
 playing = true
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Label" type="Label" parent="DaBaby"]
+margin_left = -32.0
+margin_top = -7.0
+margin_right = 32.0
+margin_bottom = 7.0
+text = "by @lil_ye"
+
 [node name="Timer" type="Timer" parent="."]
-wait_time = 300.0
+wait_time = 600.0
 one_shot = true
+autostart = true
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
