@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://levels/memory/player.gd" type="Script" id=1]
+[ext_resource path="res://levels/memory/shield_high.png" type="Texture" id=2]
+[ext_resource path="res://levels/memory/shield_low.png" type="Texture" id=3]
+[ext_resource path="res://levels/memory/shield_medium.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 254.0
+
+[sub_resource type="OpenSimplexNoise" id=2]
+
+[sub_resource type="NoiseTexture" id=3]
+width = 64
+height = 128
+noise = SubResource( 2 )
+
+[node name="Player" type="Area2D"]
+script = ExtResource( 1 )
+shield_textures = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 64 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 3 )
+
+[node name="Shield" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 32 )
