@@ -66,5 +66,9 @@ anims/fade = SubResource( 1 )
 curve = SubResource( 2 )
 
 [node name="Follow" type="PathFollow2D" parent="FinalPath"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
 [connection signal="game_over" from="Player" to="." method="_on_Player_game_over"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
