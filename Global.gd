@@ -1,10 +1,12 @@
 extends Node
 
+var DaBaby = false
 var current_scene = null
 var old_scene = null
 var level = 0
 
 onready var root = get_tree().get_root()
+
 
 var destroy_on_load = []
 
