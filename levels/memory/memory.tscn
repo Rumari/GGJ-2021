@@ -4,8 +4,6 @@
 [ext_resource path="res://levels/memory/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/memory/memory.gd" type="Script" id=4]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "fade"
 tracks/0/type = "value"
