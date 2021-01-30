@@ -1,10 +1,13 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://levels/titlescreen/titlescreen.gd" type="Script" id=1]
-[ext_resource path="res://levels/titlescreen/mainmenu.png" type="Texture" id=2]
-[ext_resource path="res://levels/titlescreen/arcadeclassic.tres" type="DynamicFont" id=3]
-[ext_resource path="res://levels/titlescreen/titlescreen.ogg" type="AudioStream" id=4]
-[ext_resource path="res://levels/titlescreen/dababy.png" type="Texture" id=5]
+[ext_resource path="res://sprites/mainmenu.png" type="Texture" id=2]
+[ext_resource path="res://arcadeclassic.tres" type="DynamicFont" id=3]
+[ext_resource path="res://music/titlescreen.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sprites/dababy.png" type="Texture" id=5]
+
+
+
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 5 )

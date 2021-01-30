@@ -1,10 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://levels/memory/player.gd" type="Script" id=1]
-[ext_resource path="res://levels/memory/shield_high.png" type="Texture" id=2]
-[ext_resource path="res://levels/memory/shield_low.png" type="Texture" id=3]
-[ext_resource path="res://levels/memory/shield_medium.png" type="Texture" id=4]
-[ext_resource path="res://levels/memory/player.png" type="Texture" id=5]
+[ext_resource path="res://sprites/shield_high.png" type="Texture" id=2]
+[ext_resource path="res://sprites/shield_low.png" type="Texture" id=3]
+[ext_resource path="res://sprites/shield_medium.png" type="Texture" id=4]
+[ext_resource path="res://sprites/player.png" type="Texture" id=5]
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 254.0

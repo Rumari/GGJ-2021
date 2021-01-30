@@ -1,6 +1,6 @@
 [gd_resource type="ArrayMesh" load_steps=3 format=2]
 
-[ext_resource path="res://dcc/door.png" type="Texture" id=1]
+[ext_resource path="res://sprites/door.png" type="Texture" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
 params_cull_mode = 1
