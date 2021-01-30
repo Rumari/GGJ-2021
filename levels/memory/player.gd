@@ -1,5 +1,8 @@
 extends Node2D
 
+const GameOverFX = preload("res://fx/game_over_memory.wav")
+const HitFX = preload("res://fx/placeholder.wav")
+
 signal game_over
 
 export(Array, Texture) var shield_textures
@@ -22,6 +25,10 @@ func damage():
 	if health == 1:
 		emit_signal("game_over")
 		$Shield.texture = null
+		get_parent().get_node("AudioStreamPlayer2D").set_stream(GameOverFX)
+		get_parent().get_node("AudioStreamPlayer2D").play()
 	elif health > 1:
 		health -= 1
 		$Shield.texture = shield_textures[health - 1]
+		get_parent().get_node("AudioStreamPlayer2D").set_stream(HitFX)
+		get_parent().get_node("AudioStreamPlayer2D").play()
