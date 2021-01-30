@@ -13,7 +13,6 @@
 [ext_resource path="res://music/song1.ogg" type="AudioStream" id=12]
 [ext_resource path="res://models/tileset.material" type="Material" id=13]
 
-
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 0.01
@@ -169,4 +168,8 @@ anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 1.0
+bus = "FX"
 [connection signal="animation_finished" from="Door/Door /AnimationPlayer" to="Door/Door " method="_on_AnimationPlayer_animation_finished"]

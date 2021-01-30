@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://models/bedroom.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://levels/player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://levels/bedroom/mirror.gd" type="Script" id=5]
 [ext_resource path="res://sprites/player_walk_mirror.png" type="Texture" id=6]
 [ext_resource path="res://sprites/player_walk.png" type="Texture" id=7]
+[ext_resource path="res://levels/deco.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sprites/deco1.png" type="Texture" id=9]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 1, 0.634509, 1.07399 )
@@ -48,6 +50,66 @@ script = ExtResource( 4 )
 memory_content = "Lorem ipsum dolor sit amet"
 bullet_freq = 0.316676
 duration = 10.0
+
+[node name="Books" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.45923, 1.24559, 0.610724 )
+
+[node name="Book 1" parent="Books" instance=ExtResource( 8 )]
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 70.354, 157.646, 24.4933, 25.6597 )
+
+[node name="Book 2" parent="Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.659642 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 101.128, 157.646, 21.9454, 23.7767 )
+
+[node name="Book 3" parent="Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.45174 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 132.198, 157.581, 22.0737, 23.6137 )
+
+[node name="Book 4" parent="Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.11528 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 159.919, 157.581, 22.5871, 24.6404 )
+
+[node name="BooksMirror" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.43339, 1.25134, 0.588434 )
+
+[node name="Book 1" parent="BooksMirror" instance=ExtResource( 8 )]
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 70.354, 157.646, 24.4933, 25.6597 )
+
+[node name="Book 2" parent="BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.659642 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 101.128, 157.646, 21.9454, 23.7767 )
+
+[node name="Book 3" parent="BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.45174 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 132.198, 157.581, 22.0737, 23.6137 )
+
+[node name="Book 4" parent="BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.11528 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 159.919, 157.581, 22.5871, 24.6404 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.092475, 0, -0.995715, 0, 1, 0, 0.995715, 0, -0.092475, -4.91486, 0.472724, 1.6287 )
@@ -127,5 +189,8 @@ anims/fade = SubResource( 2 )
 
 [node name="BulletFreq" type="AnimationPlayer" parent="."]
 anims/bullet_freq = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "FX"
 [connection signal="body_entered" from="Fight/TriggerArea" to="." method="_on_TriggerArea_body_entered"]
 [connection signal="animation_finished" from="TransitionAnimation" to="." method="_on_AnimationPlayer_animation_finished"]

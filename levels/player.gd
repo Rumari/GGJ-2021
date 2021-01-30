@@ -1,5 +1,6 @@
 extends KinematicBody
 
+const Footsteps = preload("res://fx/footsteps.wav")
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -37,7 +38,14 @@ func _physics_process(delta):
 		time += delta
 		frame = int(time * movement_speed * animation_multiplier) % 4
 		$Sprite.frame = frame
+		if is_on_floor():
+			var player = get_parent().get_node("AudioStreamPlayer")
+			if not player.is_playing():
+				player.set_stream(Footsteps)
+				player.play()
 	else:
+		var player = get_parent().get_node("AudioStreamPlayer")
+		player.stop()
 		time = 0.0
 		frame = 0
 		$Sprite.frame = frame
