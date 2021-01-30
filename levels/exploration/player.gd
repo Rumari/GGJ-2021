@@ -11,6 +11,16 @@ export(float) var animation_multiplier = 1.15
 
 var vertical_vel = 0.0
 var time = 0.0
+var DaBaby = load("res://dcc/dababy.png") 
+var DaBabyVector = 0
+
+
+func _enter_tree():
+	if Global.DaBaby:
+		$Sprite.set_texture(DaBaby)
+		DaBabyVector = Vector3(.05, .05, .05)
+		$Sprite.set_scale(DaBabyVector)
+		$Sprite.set_hframes(1)
 
 func _physics_process(delta):
 	var movement = 0.0
