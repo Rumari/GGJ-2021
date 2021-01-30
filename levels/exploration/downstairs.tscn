@@ -34,3 +34,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.87584, -4.47324e-08, 0.6370
 interaction = NodePath("Memory")
 
 [node name="Memory" parent="Interactable" instance=ExtResource( 5 )]
+memory_text = "Hello world"
