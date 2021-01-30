@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://levels/exploration/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/exploration/player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://levels/exploration/interactable.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/titlescreen/arcadeclassic.tres" type="DynamicFont" id=7]
 [ext_resource path="res://addons/CRT/crt_material.tres" type="Material" id=8]
+[ext_resource path="res://addons/Glitch/glitch_effect.shader" type="Shader" id=9]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -16,6 +17,14 @@ ambient_light_energy = 0.01
 [sub_resource type="SpatialMaterial" id=2]
 params_billboard_mode = 2
 albedo_texture = ExtResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 9 )
+shader_param/shake_power = 0.03
+shader_param/shake_rate = 0.001
+shader_param/shake_speed = 5.0
+shader_param/shake_block_size = 30.5
+shader_param/shake_color_rate = 0.01
 
 [node name="Upstairs" type="Spatial"]
 
@@ -58,10 +67,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CRTShader" type="CanvasLayer" parent="."]
-layer = 6
+[node name="GlitchShader" type="CanvasLayer" parent="."]
+layer = 2
 
-[node name="Shader" type="ColorRect" parent="CRTShader"]
+[node name="Glitch" type="ColorRect" parent="GlitchShader"]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CRT" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="CRT" type="ColorRect" parent="CRT"]
 material = ExtResource( 8 )
 anchor_right = 1.0
 anchor_bottom = 1.0
