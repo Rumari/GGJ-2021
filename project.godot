@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="EDUCE"
 config/description="After years, the protagonist goes back to his old family's house to recollect the memories that he's since long lost. A 3d pixel art game and typing shoot'em up."
-run/main_scene="res://levels/house/house.tscn"
+run/main_scene="res://levels/titlescreen/titlescreen.tscn"
 config/icon="res://sprites/icon.png"
 
 [autoload]
