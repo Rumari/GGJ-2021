@@ -1,6 +1,4 @@
-[gd_resource type="ArrayMesh" load_steps=2 format=2]
-
-[ext_resource path="res://dcc/tileset_new.material" type="Material" id=1]
+[gd_resource type="ArrayMesh" format=2]
 
 [resource]
 surfaces/0 = {
@@ -10,7 +8,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 7566,
-"material": ExtResource( 1 ),
 "name": "Cube",
 "primitive": 4,
 "skeleton_aabb": [  ],
