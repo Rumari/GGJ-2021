@@ -18,7 +18,7 @@ spot_range = 14.9251
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.932046, 0.362341, 0, -0.362341, 0.932046, 0.011, 1, 1.961 )
-fov = 55.911
+fov = 56.0
 script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

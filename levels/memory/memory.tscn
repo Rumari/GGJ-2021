@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://music/shmup.ogg" type="AudioStream" id=1]
 [ext_resource path="res://levels/memory/player.tscn" type="PackedScene" id=2]
@@ -19,12 +19,16 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 1024, 600, 0, 0, 0, 0, 0, 600, 0, 0, 0, 0, 0, 0 )
+}
+
 [node name="Memory" type="Node2D"]
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
-paragraph = "Lorem ipsum"
 average_bullet_velocity = 20.0
 velocity_bound = 0.25
 
@@ -48,7 +52,7 @@ __meta__ = {
 [node name="Transition" type="Node" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
@@ -58,6 +62,11 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade = SubResource( 1 )
+
+[node name="FinalPath" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="Follow" type="PathFollow2D" parent="FinalPath"]
 [connection signal="game_over" from="Player" to="." method="_on_Player_game_over"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
