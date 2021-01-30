@@ -31,6 +31,7 @@ func _ready():
 	
 	if final:
 		started = true
+		$AudioStreamPlayer2D.stream = load("res://music/finalboss.ogg")
 		$Player.position = viewport_size / 2
 		$Player.make_final()
 	else:
