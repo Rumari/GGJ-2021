@@ -41,7 +41,3 @@ func _physics_process(delta):
 	
 	rotation_degrees.y += angle * look_sensitivity * delta
 	move_and_slide(vel, Vector3.UP)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
