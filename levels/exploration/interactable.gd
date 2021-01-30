@@ -6,6 +6,10 @@ export(NodePath) var interaction
 func _enter_tree():
 	get_parent().get_node("Label").hide()
 	get_parent().get_node("GlitchShader/Glitch").hide()
+
+func _exit_tree():	
+	get_parent().get_node("Label").hide()
+	get_parent().get_node("GlitchShader/Glitch").hide()
 	
 func _process(delta):
 	$Sprite.rotate_y(delta * rot_speed)
