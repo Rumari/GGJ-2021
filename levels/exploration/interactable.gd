@@ -4,7 +4,7 @@ export(float) var rot_speed
 export(NodePath) var interaction
 
 func _enter_tree():
-	get_parent().get_node("Label").hide()
+	get_parent().get_node("Confirm").hide()
 	
 func _process(delta):
 	$Sprite.rotate_y(delta * rot_speed)
@@ -16,6 +16,6 @@ func _input(event):
 
 func show():
 	if len(get_overlapping_bodies()) > 0:
-		get_parent().get_node("Label").show()
+		get_parent().get_node("Confirm").show()
 	else:
-		get_parent().get_node("Label").hide()
+		get_parent().get_node("Confirm").hide()

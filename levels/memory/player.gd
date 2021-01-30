@@ -17,5 +17,6 @@ func damage():
 	health -= 1
 	if health == 0:
 		emit_signal("game_over")
-		get_parent().queue_free()
-	$Shield.texture = shield_textures[health - 1]
+		$Shield.texture = null
+	else:
+		$Shield.texture = shield_textures[health - 1]

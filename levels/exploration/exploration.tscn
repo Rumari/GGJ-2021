@@ -44,7 +44,7 @@ texture = ExtResource( 3 )
 [node name="Door" parent="." instance=ExtResource( 4 )]
 transform = Transform( 100, 0, 0, 0, -1.62921e-05, 100, 0, -100, -1.62921e-05, -6.62514, 3.99348, 9.99491 )
 
-[node name="Label" type="Label" parent="."]
+[node name="Confirm" type="Label" parent="."]
 visible = false
 anchor_left = 0.5
 anchor_top = 1.0
@@ -87,6 +87,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70983, 0.274374, 1.02228 )
 interaction = NodePath("Memory")
 
 [node name="Memory" parent="Interactable" instance=ExtResource( 5 )]
-memory_text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pellentesque augue sit amet ex imperdiet, a laoreet risus feugiat. Duis vel elit lacus. Curabitur tincidunt metus ut ex auctor efficitur. Aliquam sed metus quam. Proin eleifend, tellus vel mattis cursus, justo arcu tristique purus, id lobortis diam felis sit amet lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed pulvinar tortor nec maximus fringilla. Quisque interdum vitae nunc non tincidunt. Fusce vulputate aliquet imperdiet. Nulla mattis odio metus, vitae vestibulum ligula cursus vitae. Sed at augue placerat, convallis nisl ut, semper eros. Sed porttitor ut arcu vitae euismod. Nunc in bibendum ante. Nam eu leo et ipsum accumsan molestie vel non lacus. Nunc orci arcu, consequat non vestibulum pulvinar, elementum at metus. Nunc quis nisi eu velit congue eleifend ut et lorem. Fusce tempor urna sed eros dictum imperdiet eget quis diam. Phasellus vel dui pulvinar, congue justo at, facilisis enim. Sed vel sem lectus. Aliquam erat volutpat. Cras non vulputate augue. Fusce fermentum, mi eu mattis feugiat, libero quam fermentum nibh, eget laoreet purus erat vitae purus. Aenean malesuada, tortor nec consectetur ullamcorper, turpis risus vehicula massa, ac volutpat nunc nibh vel massa. Nulla id tristique nulla. Vivamus pretium, sem at commodo aliquet, massa purus tincidunt arcu, ac sagittis enim tellus ut arcu. Phasellus finibus tincidunt magna tincidunt bibendum. Maecenas efficitur, leo vitae dignissim posuere, dui risus rhoncus lorem, in fermentum erat arcu vitae odio. Donec vehicula eros magna, sed consequat est maximus a. Nulla vehicula et metus at sodales. Mauris sollicitudin nisl sit amet nulla faucibus, vitae pharetra tortor tempus. Proin vitae ultrices ipsum. Quisque sit amet lorem urna. Nullam imperdiet vehicula justo. Aliquam et condimentum urna, eget euismod purus. Vestibulum maximus vestibulum sem non faucibus. In molestie justo ut eros mattis, eu cursus nunc sollicitudin. Aenean sit amet massa ipsum. Donec molestie tristique euismod. Mauris ullamcorper non eros vitae lacinia. Mauris ac aliquet ipsum.
-
-Donec vel vehicula libero. Fusce eget tortor id turpis malesuada condimentum at sit amet erat. Curabitur porttitor mauris vel justo mollis, et congue enim dapibus. Aliquam eget interdum purus. Maecenas facilisis turpis eu laoreet aliquam. Nullam risus nibh, aliquam sed posuere dictum, interdum imperdiet ante. Cras quis nunc at leo commodo posuere. Duis vehicula lobortis libero. Aliquam egestas leo ut mattis fringilla. Morbi varius sollicitudin urna, et porta nibh vestibulum vel. In at ipsum sit amet nulla laoreet sodales. Sed id ante quis lorem dapibus sagittis vel ac leo. Donec dapibus in magna id rutrum. Quisque risus mi, consectetur et ornare ac, blandit at erat."
+memory_text = "amet, consectetur adipiscing elit.
+Etiam pellentesque augue sit amet ex imperdiet, a laoreet risus feugiat.
+Duis vel elit lacus. Curabitur tincidunt metus ut ex auctor efficitur.
+Aliquam sed metus quam. Proin eleifend, tellus vel mattis cursus, justo arcu tristique purus, id lobortis diam felis sit amet lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+Sed pulvinar tortor nec maximus fringilla."
