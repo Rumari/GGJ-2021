@@ -11,6 +11,7 @@ export(float) var animation_multiplier = 1.15
 
 var vertical_vel = 0.0
 var time = 0.0
+var frame = 0
 
 func _physics_process(delta):
 	var movement = 0.0
@@ -34,10 +35,12 @@ func _physics_process(delta):
 		
 	if movement != 0.0:
 		time += delta
-		$Sprite.frame = int(time * movement_speed * animation_multiplier) % 4
+		frame = int(time * movement_speed * animation_multiplier) % 4
+		$Sprite.frame = frame
 	else:
 		time = 0.0
-		$Sprite.frame = 0
+		frame = 0
+		$Sprite.frame = frame
 	
 	rotation_degrees.y += angle * look_sensitivity * delta
 	move_and_slide(vel, Vector3.UP)
