@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://levels/exploration/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/exploration/player.tscn" type="PackedScene" id=2]
@@ -9,7 +9,9 @@
 [ext_resource path="res://levels/titlescreen/arcadeclassic.tres" type="DynamicFont" id=7]
 [ext_resource path="res://addons/CRT/crt_material.tres" type="Material" id=8]
 [ext_resource path="res://addons/Glitch/glitch_effect.shader" type="Shader" id=9]
-[ext_resource path="res://dcc/Music/song1.ogg" type="AudioStream" id=10]
+[ext_resource path="res://levels/exploration/exploration.gd" type="Script" id=10]
+[ext_resource path="res://levels/exploration/interactions/door.gd" type="Script" id=11]
+[ext_resource path="res://dcc/Music/song1.ogg" type="AudioStream" id=12]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -27,7 +29,8 @@ shader_param/shake_speed = 5.0
 shader_param/shake_block_size = 30.5
 shader_param/shake_color_rate = 0.01
 
-[node name="Upstairs" type="Spatial"]
+[node name="Exploration" type="Spatial"]
+script = ExtResource( 10 )
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
 
@@ -42,10 +45,7 @@ transform = Transform( 0.999919, 0, -0.012758, 0, 1, 0, 0.012758, 0, 0.999919, -
 material_override = SubResource( 2 )
 texture = ExtResource( 3 )
 
-[node name="Door" parent="." instance=ExtResource( 4 )]
-transform = Transform( 100, 0, 0, 0, -1.62921e-05, 100, 0, -100, -1.62921e-05, -6.62514, 3.99348, 9.99491 )
-
-[node name="Label" type="Label" parent="."]
+[node name="Confirm" type="Label" parent="."]
 visible = false
 anchor_left = 0.5
 anchor_top = 1.0
@@ -84,15 +84,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Interactable" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70983, 0.274374, 1.02228 )
+[node name="Memory 1" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8338, 0.274374, 4.6327 )
 interaction = NodePath("Memory")
 
-[node name="Memory" parent="Interactable" instance=ExtResource( 5 )]
-memory_text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pellentesque augue sit amet ex imperdiet, a laoreet risus feugiat. Duis vel elit lacus. Curabitur tincidunt metus ut ex auctor efficitur. Aliquam sed metus quam. Proin eleifend, tellus vel mattis cursus, justo arcu tristique purus, id lobortis diam felis sit amet lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed pulvinar tortor nec maximus fringilla. Quisque interdum vitae nunc non tincidunt. Fusce vulputate aliquet imperdiet. Nulla mattis odio metus, vitae vestibulum ligula cursus vitae. Sed at augue placerat, convallis nisl ut, semper eros. Sed porttitor ut arcu vitae euismod. Nunc in bibendum ante. Nam eu leo et ipsum accumsan molestie vel non lacus. Nunc orci arcu, consequat non vestibulum pulvinar, elementum at metus. Nunc quis nisi eu velit congue eleifend ut et lorem. Fusce tempor urna sed eros dictum imperdiet eget quis diam. Phasellus vel dui pulvinar, congue justo at, facilisis enim. Sed vel sem lectus. Aliquam erat volutpat. Cras non vulputate augue. Fusce fermentum, mi eu mattis feugiat, libero quam fermentum nibh, eget laoreet purus erat vitae purus. Aenean malesuada, tortor nec consectetur ullamcorper, turpis risus vehicula massa, ac volutpat nunc nibh vel massa. Nulla id tristique nulla. Vivamus pretium, sem at commodo aliquet, massa purus tincidunt arcu, ac sagittis enim tellus ut arcu. Phasellus finibus tincidunt magna tincidunt bibendum. Maecenas efficitur, leo vitae dignissim posuere, dui risus rhoncus lorem, in fermentum erat arcu vitae odio. Donec vehicula eros magna, sed consequat est maximus a. Nulla vehicula et metus at sodales. Mauris sollicitudin nisl sit amet nulla faucibus, vitae pharetra tortor tempus. Proin vitae ultrices ipsum. Quisque sit amet lorem urna. Nullam imperdiet vehicula justo. Aliquam et condimentum urna, eget euismod purus. Vestibulum maximus vestibulum sem non faucibus. In molestie justo ut eros mattis, eu cursus nunc sollicitudin. Aenean sit amet massa ipsum. Donec molestie tristique euismod. Mauris ullamcorper non eros vitae lacinia. Mauris ac aliquet ipsum.
+[node name="Memory" parent="Memory 1" instance=ExtResource( 5 )]
+memory_text = "memory one"
+rot_speed = 2.0
 
-Donec vel vehicula libero. Fusce eget tortor id turpis malesuada condimentum at sit amet erat. Curabitur porttitor mauris vel justo mollis, et congue enim dapibus. Aliquam eget interdum purus. Maecenas facilisis turpis eu laoreet aliquam. Nullam risus nibh, aliquam sed posuere dictum, interdum imperdiet ante. Cras quis nunc at leo commodo posuere. Duis vehicula lobortis libero. Aliquam egestas leo ut mattis fringilla. Morbi varius sollicitudin urna, et porta nibh vestibulum vel. In at ipsum sit amet nulla laoreet sodales. Sed id ante quis lorem dapibus sagittis vel ac leo. Donec dapibus in magna id rutrum. Quisque risus mi, consectetur et ornare ac, blandit at erat."
+[node name="Memory 2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.538199, 0.274374, -4.50699 )
+interaction = NodePath("Memory")
+
+[node name="Memory" parent="Memory 2" instance=ExtResource( 5 )]
+memory_text = "memory two"
+rot_speed = 2.0
+
+[node name="Memory 3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2904, 0.98695, -7.1362 )
+interaction = NodePath("Memory")
+
+[node name="Memory" parent="Memory 3" instance=ExtResource( 5 )]
+memory_text = "memory three"
+rot_speed = 2.0
+
+[node name="Memory 4" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59945, 0.274374, -7.41808 )
+interaction = NodePath("Memory")
+
+[node name="Memory" parent="Memory 4" instance=ExtResource( 5 )]
+memory_text = "memory four"
+rot_speed = 2.0
+
+[node name="Door" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71021, 3.16435, 9.995 )
+interaction = NodePath("Door ")
+
+[node name="Door " parent="Door" instance=ExtResource( 4 )]
+transform = Transform( 100, 0, 0, 0, -1.62921e-05, 100, 0, -100, -1.62921e-05, -0.743294, 0.831736, 0 )
+script = ExtResource( 11 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 12 )
 autoplay = true

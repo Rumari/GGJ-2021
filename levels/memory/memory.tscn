@@ -24,7 +24,7 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
-paragraph = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+paragraph = "Lorem ipsum"
 average_bullet_velocity = 20.0
 velocity_bound = 0.25
 
@@ -58,5 +58,6 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade = SubResource( 1 )
+[connection signal="game_over" from="Player" to="." method="_on_Player_game_over"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -1,12 +1,15 @@
 extends Node2D
 
 const TextBullet = preload("res://levels/memory/text_bullet.tscn")
+const Text = preload("res://levels/text.tscn")
 
 var rng = RandomNumberGenerator.new()
 var words
 var current_first_characters = []
 var targeted_bullet = null
 var started = false
+var stopped = false
+var lost = false
 
 onready var viewport_size = get_viewport().size
 
@@ -23,12 +26,16 @@ func _ready():
 	$Player.position.x = viewport_size.x / 2
 	$Player.position.y = viewport_size.y - $Player.get_rect().size.y / 2
 	
-	for illegal in [".", ","]:
-		paragraph = paragraph.replace(illegal, "")
-	words = paragraph.split(" ", false)
-	for i in range(len(words)):
-		words[i] = words[i].strip_edges().to_upper()
-		
+	words = []
+	
+	var lines = paragraph.split("\n", false)
+	for line in lines:
+		for illegal in [".", ","]:
+			line = line.replace(illegal, "") 
+		var w = line.split(" ", false)
+		for i in w:
+			words.append(i.strip_edges().to_upper())
+
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if 65 <= event.scancode and event.scancode <= 90: # A to Z
@@ -62,13 +69,18 @@ func spawn_bullet(word):
 	$TextBullets.add_child(bullet)
 				
 func _on_Timer_timeout():
-	if !started:
+	if !started or stopped:
 		return
 	
 	if len(words) == 0:
 		if $TextBullets.get_child_count() == 0:
-			Global.goto_old_and_destroy(destroy_on_win)
-			queue_free()
+			# $AnimationPlayer.play_backwards("fade")
+			# res://levels/text.tscn
+			stopped = true
+			var text = Text.instance()
+			text.content = paragraph.split("\n")
+			get_parent().add_child(text)
+			text.connect("closed", self, "_on_Text_closed")
 		return
 		
 	for i in range(len(words)):
@@ -79,4 +91,18 @@ func _on_Timer_timeout():
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
+	if started:
+		if lost:
+			Global.goto_old()
+		else:
+			Global.goto_old_and_destroy(destroy_on_win)
+		queue_free()
 	started = true
+	
+func _on_Text_closed():
+	Global.level += 1
+	$AnimationPlayer.play_backwards("fade")
+	
+func _on_Player_game_over():
+	lost = true
+	$AnimationPlayer.play_backwards("fade")
