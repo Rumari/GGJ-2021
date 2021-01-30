@@ -39,7 +39,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70983, 0.274374, 1.02228 )
 interaction = NodePath("Memory")
 
 [node name="Memory" parent="Interactable" instance=ExtResource( 5 )]
-memory_text = "Lorem Ipsum"
+memory_text = "Lorem Ipsum teste teste a b c d e f g h i j k l m n o p q r s t u v w "
 
 [node name="Label" type="Label" parent="."]
 visible = false
