@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/shmup.ogg-48aec05f8da72e0c3a8744377c80c9e5.oggstr"
+
+[deps]
+
+source_file="res://music/shmup.ogg"
+dest_files=[ "res://.import/shmup.ogg-48aec05f8da72e0c3a8744377c80c9e5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

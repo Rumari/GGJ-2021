@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://levels/bedroom/bedroom.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://models/bedroom.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://levels/exploration/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/exploration/door.tscn" type="PackedScene" id=3]
 
