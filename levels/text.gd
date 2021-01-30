@@ -31,8 +31,7 @@ func _input(event):
 			ticks = line_delay	
 
 func _on_Timer_timeout():
-	if finished or line == len(content):
-		finished = true
+	if finished:
 		$Confirm.visible = true
 		return
 	elif !start:
@@ -51,6 +50,9 @@ func _on_Timer_timeout():
 			append_text(content[line][column])
 			column = column + 1
 
+	if line == len(content):
+		finished = true
+	
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if finished:
 		emit_signal("closed")

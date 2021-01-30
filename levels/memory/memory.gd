@@ -3,6 +3,9 @@ extends Node2D
 const TextBullet = preload("res://levels/memory/text_bullet.tscn")
 const Text = preload("res://levels/text.tscn")
 
+signal win
+signal game_over
+
 var rng = RandomNumberGenerator.new()
 var words
 var current_first_characters = []
@@ -11,18 +14,22 @@ var started = false
 var stopped = false
 var lost = false
 var final = false
+var time = 0.0
 
 onready var viewport_size = get_viewport().size
 
 export(String, MULTILINE) var content
 export(float) var average_bullet_velocity
 export(float, 0, 1) var velocity_bound
+export(float, 0.1, 10) var bullet_freq = 1
+export(float) var duration = 120.0
 export(NodePath) var destroy_on_win
 
 func _ready():
 	rng.randomize()
 	
 	if final:
+		started = true
 		$Player.position = viewport_size / 2
 		$Player.make_final()
 	else:
@@ -78,34 +85,46 @@ func spawn_bullet(word):
 	bullet.velocity = direction * average_bullet_velocity * scalar
 	$TextBullets.add_child(bullet)
 				
-func _on_Timer_timeout():
+func _process(delta):
+	time += delta
+	duration -= delta
+		
 	if !started or stopped:
 		return
-	
-	if len(words) == 0:
-		if $TextBullets.get_child_count() == 0:
-			# $AnimationPlayer.play_backwards("fade")
-			# res://levels/text.tscn
-			stopped = true
-			var text = Text.instance()
-			text.content = content.split("\n")
-			get_parent().add_child(text)
-			text.connect("closed", self, "_on_Text_closed")
-		return
-		
-	for i in range(len(words)):
-		if !current_first_characters.has(words[i][0]):
-			spawn_bullet(words[i])
-			words.remove(i)
-			break
 
+	if time >= 1.0 / bullet_freq:
+		time = 0.0
+		
+		if duration < 0.0:
+			if $TextBullets.get_child_count() == 0:
+				stopped = true
+				var text = Text.instance()
+				text.content = content.split("\n")
+				get_parent().add_child(text)
+				text.connect("closed", self, "_on_Text_closed")
+			return
+			
+		var i = rng.randi_range(0, len(words) - 1)
+		if !current_first_characters.has(words[i][0]):
+			spawn_bullet(words[i])		
+		else:
+			for j in range(len(words)):
+				if !current_first_characters.has(words[j][0]):
+					spawn_bullet(words[j])
+					break
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if started:
-		if lost:
-			Global.goto_old()
+		if !final:
+			if lost:
+				Global.goto_old()
+			else:
+				Global.goto_old_and_destroy(destroy_on_win)
 		else:
-			Global.goto_old_and_destroy(destroy_on_win)
+			if lost:
+				emit_signal("game_over")
+			else:
+				emit_signal("win")								
 		queue_free()
 	started = true
 	
