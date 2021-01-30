@@ -5,6 +5,7 @@ export(NodePath) var interaction
 
 func _enter_tree():
 	get_parent().get_node("Label").hide()
+	get_parent().get_node("GlitchShader/Glitch").hide()
 	
 func _process(delta):
 	$Sprite.rotate_y(delta * rot_speed)
@@ -17,5 +18,7 @@ func _input(event):
 func show():
 	if len(get_overlapping_bodies()) > 0:
 		get_parent().get_node("Label").show()
+		get_parent().get_node("GlitchShader/Glitch").show()
 	else:
 		get_parent().get_node("Label").hide()
+		get_parent().get_node("GlitchShader/Glitch").hide()
