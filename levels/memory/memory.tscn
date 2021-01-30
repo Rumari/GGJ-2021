@@ -32,7 +32,6 @@ __meta__ = {
 content = "Lorem ipsum blablablalga ap hgla glas yhdka mhjda mjs hmdjn hwma dwmaohm dagtajsitjwi jwi jrdo wjifow iwo jfowi jwi gjowd jifwj ow jwfoi jwdojw oi"
 average_bullet_velocity = 20.0
 velocity_bound = 0.25
-bullet_freq = 1.0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
