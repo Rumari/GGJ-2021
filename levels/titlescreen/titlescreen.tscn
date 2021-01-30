@@ -1,13 +1,14 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://levels/titlescreen/titlescreen.gd" type="Script" id=1]
-[ext_resource path="res://sprites/mainmenu.png" type="Texture" id=2]
+[ext_resource path="res://sprites/end_screen.png" type="Texture" id=2]
 [ext_resource path="res://arcadeclassic.tres" type="DynamicFont" id=3]
 [ext_resource path="res://music/titlescreen.ogg" type="AudioStream" id=4]
 [ext_resource path="res://sprites/dababy.png" type="Texture" id=5]
 
-
-
+[sub_resource type="StreamTexture" id=13]
+flags = 4
+load_path = "res://.import/start_screen.png-769b7568853feeeea71294181472d1e6.stex"
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 5 )
@@ -68,18 +69,15 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+end_texture = ExtResource( 2 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.18921
-margin_top = 1.18921
-margin_right = 1.18921
-margin_bottom = 1.18921
-texture = ExtResource( 2 )
-stretch_mode = 1
+texture = SubResource( 13 )
+expand = true
+stretch_mode = 6
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -144,7 +142,7 @@ __meta__ = {
 position = Vector2( 97.5807, 111.723 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 12 )
-frame = 9
+frame = 5
 playing = true
 __meta__ = {
 "_edit_lock_": true
