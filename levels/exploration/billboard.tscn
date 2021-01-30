@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+params_billboard_mode = 2
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+albedo_texture = ExtResource( 2 )
+
+[node name="Billboard" type="Spatial"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+material_override = SubResource( 1 )
+shaded = true
+texture = ExtResource( 2 )
