@@ -21,7 +21,6 @@ environment = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.006475, 0, 0.999979, 0, 1, 0, -0.999979, 0, 0.006475, 0, 1, 0 )
-animation_multiplier = 1.15
 
 [node name="Godot" type="Sprite3D" parent="."]
 transform = Transform( 0.999919, 0, -0.012758, 0, 1, 0, 0.012758, 0, 0.999919, -15.345, 2.36969, -7.54222 )
