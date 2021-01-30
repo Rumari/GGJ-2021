@@ -22,6 +22,7 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("confirm"):
 		if finished:
+			$Confirm.visible = false
 			$AnimationPlayer.play_backwards("fade")
 		else:
 			if len(content[line]) != column:
@@ -32,6 +33,7 @@ func _input(event):
 func _on_Timer_timeout():
 	if finished or line == len(content):
 		finished = true
+		$Confirm.visible = true
 		return
 	elif !start:
 		return
@@ -48,7 +50,6 @@ func _on_Timer_timeout():
 			ticks = 0
 			append_text(content[line][column])
 			column = column + 1
-
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if finished:

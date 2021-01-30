@@ -6,6 +6,7 @@ var rng = RandomNumberGenerator.new()
 var words
 var current_first_characters = []
 var targeted_bullet = null
+var started = false
 
 onready var viewport_size = get_viewport().size
 
@@ -15,6 +16,8 @@ export(float, 0, 1) var velocity_bound
 export(NodePath) var destroy_on_win
 
 func _ready():
+	$AnimationPlayer.play("fade")
+	
 	rng.randomize()
 	
 	$Player.position.x = viewport_size.x / 2
@@ -59,6 +62,9 @@ func spawn_bullet(word):
 	$TextBullets.add_child(bullet)
 				
 func _on_Timer_timeout():
+	if !started:
+		return
+	
 	if len(words) == 0:
 		if $TextBullets.get_child_count() == 0:
 			Global.goto_old_and_destroy(destroy_on_win)
@@ -70,3 +76,7 @@ func _on_Timer_timeout():
 			spawn_bullet(words[i])
 			words.remove(i)
 			break
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	started = true
