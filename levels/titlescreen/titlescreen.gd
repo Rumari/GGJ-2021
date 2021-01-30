@@ -6,10 +6,10 @@ func _ready():
 
 func _on_Timer_timeout():
 	$DaBaby.show()
+	Global.DaBaby = true
 
 func _on_Start_pressed():
-	pass # Replace with function body.
-
+	get_tree().change_scene("res://levels/exploration/exploration.tscn")
 
 func _on_Exit_pressed():
-	pass # Replace with function body.
+	get_tree().quit()
