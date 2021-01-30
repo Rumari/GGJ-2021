@@ -19,6 +19,7 @@ var time = 0.0
 onready var viewport_size = get_viewport().size
 
 export(String, MULTILINE) var content
+export(String, MULTILINE) var hidden_content
 export(float) var average_bullet_velocity
 export(float, 0, 1) var velocity_bound
 export(float, 0.1, 10) var bullet_freq = 1
@@ -39,8 +40,9 @@ func _ready():
 	
 	words = []
 	
+	var hidden_lines = hidden_content.split("\n", false)
 	var lines = content.split("\n", false)
-	for line in lines:
+	for line in (lines + hidden_lines):
 		for illegal in [".", ","]:
 			line = line.replace(illegal, "") 
 		var w = line.split(" ", false)

@@ -125,6 +125,7 @@ interaction = NodePath("Memory")
 
 [node name="Memory" parent="Memory 4" instance=ExtResource( 5 )]
 memory_text = "memory four"
+hidden_text = "test batata"
 rot_speed = 2.0
 
 [node name="Confirm" type="Label" parent="."]

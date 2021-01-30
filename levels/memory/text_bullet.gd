@@ -5,6 +5,7 @@ var progress = 0
 var original_text
 var selected = false
 var offset
+var valid = true
 
 export(Vector2) var velocity
 export(Color) var selected_color
@@ -22,11 +23,12 @@ func select():
 	$Text/End.add_color_override("font_color", selected_color) 
 
 func enter_character(chr):
-	if text[progress].to_upper() != chr:
+	if !valid or text[progress].to_upper() != chr:
 		return 0
 	
 	progress += 1
 	if progress == len(text):
+		valid = false
 		queue_free()
 		return 2
 	else:
