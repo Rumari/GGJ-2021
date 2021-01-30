@@ -8,6 +8,7 @@ var words
 onready var viewport_size = get_viewport().size
 
 export(String, MULTILINE) var paragraph
+export(NodePath) var destroy_on_win
 export(float) var average_bullet_velocity
 export(float, 0, 1) var velocity_bound
 
@@ -26,8 +27,7 @@ func _ready():
 func _on_Timer_timeout():
     if len(words) == 0:
         if $TextBullets.get_child_count() == 0:
-            print_debug('we won!')
-            queue_free()
+            Global.goto_old_and_destroy(destroy_on_win)
         return
         
     var text_bullet = TextBullet.instance()
@@ -42,3 +42,7 @@ func _on_Timer_timeout():
     var scalar = clamp(rng.randfn(1), 1 - velocity_bound, 1 + velocity_bound)
     text_bullet.velocity = direction * average_bullet_velocity * scalar
     $TextBullets.add_child(text_bullet)
+
+
+func _on_game_over():
+    Global.goto_old()

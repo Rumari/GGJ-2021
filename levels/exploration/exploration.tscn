@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/exploration/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/exploration/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://levels/exploration/door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/exploration/interactions/memory.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/exploration/interactable.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -30,3 +32,10 @@ texture = ExtResource( 3 )
 
 [node name="Door" parent="." instance=ExtResource( 4 )]
 transform = Transform( 100, 0, 0, 0, -1.62921e-05, 100, 0, -100, -1.62921e-05, -6.62514, 3.99348, 9.99491 )
+
+[node name="Interactable" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70983, 0.274374, 1.02228 )
+interaction = NodePath("Memory")
+
+[node name="Memory" parent="Interactable" instance=ExtResource( 5 )]
+memory_text = "Lorem Ipsum"
