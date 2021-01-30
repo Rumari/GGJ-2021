@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://levels/exploration/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/exploration/player.tscn" type="PackedScene" id=2]
@@ -11,7 +11,8 @@
 [ext_resource path="res://addons/Glitch/glitch_effect.shader" type="Shader" id=9]
 [ext_resource path="res://levels/exploration/exploration.gd" type="Script" id=10]
 [ext_resource path="res://levels/exploration/interactions/door.gd" type="Script" id=11]
-[ext_resource path="res://dcc/Music/song1.ogg" type="AudioStream" id=12]
+[ext_resource path="res://dcc/Music/test.ogg" type="AudioStream" id=12]
+[ext_resource path="res://levels/exploration/Music.gd" type="Script" id=13]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -126,4 +127,4 @@ script = ExtResource( 11 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
-autoplay = true
+script = ExtResource( 13 )
