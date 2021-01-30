@@ -12,13 +12,13 @@ var song = 0
 func _enter_tree():
 	match level:
 		0:
-			song = load("res://dcc/Music/song1.ogg")
+			song = load("res://music/song1.ogg")
 		1:
-			song = load("res://dcc/Music/song2.ogg")
+			song = load("res://music/song2.ogg")
 		2:
-			song = load("res://dcc/Music/song3.ogg")
+			song = load("res://music/song3.ogg")
 		3:
-			song = load("res://dcc/Music/song4.ogg")
+			song = load("res://music/song4.ogg")
 	self.set_stream(song)
 	self.play()
 
