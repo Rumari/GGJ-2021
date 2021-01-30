@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://levels/exploration/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/exploration/player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://levels/titlescreen/arcadeclassic.tres" type="DynamicFont" id=7]
 [ext_resource path="res://addons/CRT/crt_material.tres" type="Material" id=8]
 [ext_resource path="res://addons/Glitch/glitch_effect.shader" type="Shader" id=9]
+[ext_resource path="res://levels/exploration/exploration.gd" type="Script" id=10]
+[ext_resource path="res://levels/exploration/interactions/door.gd" type="Script" id=11]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -26,7 +28,8 @@ shader_param/shake_speed = 5.0
 shader_param/shake_block_size = 30.5
 shader_param/shake_color_rate = 0.01
 
-[node name="Upstairs" type="Spatial"]
+[node name="Exploration" type="Spatial"]
+script = ExtResource( 10 )
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
 
@@ -40,9 +43,6 @@ transform = Transform( 0.006475, 0, 0.999979, 0, 1, 0, -0.999979, 0, 0.006475, 0
 transform = Transform( 0.999919, 0, -0.012758, 0, 1, 0, 0.012758, 0, 0.999919, -15.345, 2.36969, -7.54222 )
 material_override = SubResource( 2 )
 texture = ExtResource( 3 )
-
-[node name="Door" parent="." instance=ExtResource( 4 )]
-transform = Transform( 100, 0, 0, 0, -1.62921e-05, 100, 0, -100, -1.62921e-05, -6.62514, 3.99348, 9.99491 )
 
 [node name="Confirm" type="Label" parent="."]
 visible = false
@@ -82,13 +82,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Interactable" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70983, 0.274374, 1.02228 )
+[node name="Memory 1" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8338, 0.274374, 4.6327 )
 interaction = NodePath("Memory")
 
-[node name="Memory" parent="Interactable" instance=ExtResource( 5 )]
-memory_text = "amet, consectetur adipiscing elit.
-Etiam pellentesque augue sit amet ex imperdiet, a laoreet risus feugiat.
-Duis vel elit lacus. Curabitur tincidunt metus ut ex auctor efficitur.
-Aliquam sed metus quam. Proin eleifend, tellus vel mattis cursus, justo arcu tristique purus, id lobortis diam felis sit amet lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-Sed pulvinar tortor nec maximus fringilla."
+[node name="Memory" parent="Memory 1" instance=ExtResource( 5 )]
+memory_text = "memory one"
+rot_speed = 2.0
+
+[node name="Memory 2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.538199, 0.274374, -4.50699 )
+interaction = NodePath("Memory")
+
+[node name="Memory" parent="Memory 2" instance=ExtResource( 5 )]
+memory_text = "memory two"
+rot_speed = 2.0
+
+[node name="Memory 3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2904, 0.98695, -7.1362 )
+interaction = NodePath("Memory")
+
+[node name="Memory" parent="Memory 3" instance=ExtResource( 5 )]
+memory_text = "memory three"
+rot_speed = 2.0
+
+[node name="Memory 4" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59945, 0.274374, -7.41808 )
+interaction = NodePath("Memory")
+
+[node name="Memory" parent="Memory 4" instance=ExtResource( 5 )]
+memory_text = "memory four"
+rot_speed = 2.0
+
+[node name="Door" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71021, 3.16435, 9.995 )
+interaction = NodePath("Door ")
+
+[node name="Door " parent="Door" instance=ExtResource( 4 )]
+transform = Transform( 100, 0, 0, 0, -1.62921e-05, 100, 0, -100, -1.62921e-05, -0.743294, 0.831736, 0 )
+script = ExtResource( 11 )

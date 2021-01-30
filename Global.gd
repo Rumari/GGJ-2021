@@ -2,12 +2,13 @@ extends Node
 
 var current_scene = null
 var old_scene = null
+var level = 0
+
 onready var root = get_tree().get_root()
 
 var destroy_on_load = []
 
 func _ready():
-
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
 func goto_scene_from_path(path):
@@ -37,3 +38,4 @@ func _deferred_goto_scene(scene):
 
 	for np in destroy_on_load:
 		get_node(np).queue_free()
+	destroy_on_load.clear()

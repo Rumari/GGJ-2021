@@ -100,8 +100,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	started = true
 	
 func _on_Text_closed():
-	$AnimationPlayer.play_backwards("fade")		
+	Global.level += 1
+	$AnimationPlayer.play_backwards("fade")
 	
 func _on_Player_game_over():
 	lost = true
-	$AnimationPlayer.play_backwards("fade")	
+	$AnimationPlayer.play_backwards("fade")
