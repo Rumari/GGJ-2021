@@ -23,7 +23,6 @@ config/icon="res://icon.png"
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
-=======
 [input]
 
 forward={
