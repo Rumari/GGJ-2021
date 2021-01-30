@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://models/bedroom.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://levels/player.tscn" type="PackedScene" id=2]
@@ -29,9 +29,25 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "bullet_freq"
+length = 200.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:bullet_freq")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.316676, -1.81447, -0.102364, 19.328, 1.0904, 0.451264, -17.4253, 0.415244, 10.0244, -0.238881, 0.835896, -18.7112, 0.666445, 20.0368, -0.71366, 1.19953, -4.82533, -0.0777085, 34.4359, 0.554565 ),
+"times": PoolRealArray( 0.3, 40.3, 72.2, 200 )
+}
+
 [node name="Bedroom" type="Spatial"]
 script = ExtResource( 4 )
-memory_content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sodales, augue ut pretium congue, risus arcu dapibus erat, id vehicula velit quam quis velit. Nulla vitae nisi eu ipsum convallis posuere in non ligula. Nunc eget congue felis. In dictum, risus nec finibus dapibus, lectus ligula posuere tellus, et lacinia tellus nunc id mi. Nulla sit amet ligula consectetur risus mollis viverra. Cras dapibus nunc at nunc dapibus pharetra. Curabitur quis dolor at leo maximus malesuada. Aliquam pellentesque purus sit amet est egestas, non posuere tortor dignissim. In sagittis tristique dui, nec placerat purus. Nunc ultrices varius elementum. Maecenas a ex fringilla leo gravida dictum. Curabitur at sem felis."
+memory_content = "Lorem ipsum dolor sit amet"
+bullet_freq = 0.316676
+duration = 10.0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.092475, 0, -0.995715, 0, 1, 0, 0.995715, 0, -0.092475, -4.91486, 0.472724, 1.6287 )
@@ -98,6 +114,7 @@ hframes = 4
 [node name="Transition" type="Node" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]
+modulate = Color( 1, 1, 1, 0.1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
@@ -105,7 +122,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="TransitionAnimation" type="AnimationPlayer" parent="."]
 anims/fade = SubResource( 2 )
+
+[node name="BulletFreq" type="AnimationPlayer" parent="."]
+anims/bullet_freq = SubResource( 4 )
 [connection signal="body_entered" from="Fight/TriggerArea" to="." method="_on_TriggerArea_body_entered"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="TransitionAnimation" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -29,8 +29,10 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
+content = "Lorem ipsum blablablalga ap hgla glas yhdka mhjda mjs hmdjn hwma dwmaohm dagtajsitjwi jwi jrdo wjifow iwo jfowi jwi gjowd jifwj ow jwfoi jwdojw oi"
 average_bullet_velocity = 20.0
 velocity_bound = 0.25
+bullet_freq = 1.0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
@@ -38,9 +40,6 @@ velocity_bound = 0.25
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
@@ -68,5 +67,4 @@ curve = SubResource( 2 )
 
 [node name="Follow" type="PathFollow2D" parent="FinalPath"]
 [connection signal="game_over" from="Player" to="." method="_on_Player_game_over"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

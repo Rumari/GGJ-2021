@@ -19,9 +19,9 @@ func get_rect():
 	return $Sprite.get_rect()
 
 func damage():
-	health -= 1
-	if health == 0:
+	if health == 1:
 		emit_signal("game_over")
 		$Shield.texture = null
-	else:
+	elif health > 1:
+		health -= 1
 		$Shield.texture = shield_textures[health - 1]
