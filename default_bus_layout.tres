@@ -7,6 +7,7 @@ resource_name = "Reverb"
 resource_name = "StereoEnhance"
 
 [resource]
+bus/0/volume_db = -0.526013
 bus/0/effect/0/effect = SubResource( 1 )
 bus/0/effect/0/enabled = false
 bus/0/effect/1/effect = SubResource( 2 )
@@ -15,7 +16,7 @@ bus/1/name = "FX"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = 0.0
+bus/1/volume_db = 5.02899
 bus/1/send = "Master"
 bus/2/name = "Maybe needed"
 bus/2/solo = false
