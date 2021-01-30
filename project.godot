@@ -15,7 +15,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ggj-2021"
+config/name="EDUCE"
+config/description="After years, the protagonist goes back to his old family's house to recollect the memories that he's since long lost. A 3d pixel art game and typing shoot'em up."
 run/main_scene="res://levels/exploration/exploration.tscn"
 config/icon="res://icon.png"
 
