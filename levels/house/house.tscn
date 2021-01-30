@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://models/house.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://levels/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/house/music.gd" type="Script" id=3]
 [ext_resource path="res://levels/house/door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/house/interactions/memory.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/house/interactable.tscn" type="PackedScene" id=6]
@@ -12,7 +13,6 @@
 [ext_resource path="res://levels/house/interactions/door.gd" type="Script" id=11]
 [ext_resource path="res://music/song1.ogg" type="AudioStream" id=12]
 [ext_resource path="res://models/tileset.material" type="Material" id=13]
-
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -146,6 +146,7 @@ __meta__ = {
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 autoplay = true
+script = ExtResource( 3 )
 
 [node name="GlitchShader" type="CanvasLayer" parent="."]
 layer = 2
