@@ -10,25 +10,29 @@ var targeted_bullet = null
 var started = false
 var stopped = false
 var lost = false
+var final = false
 
 onready var viewport_size = get_viewport().size
 
-export(String, MULTILINE) var paragraph
+export(String, MULTILINE) var content
 export(float) var average_bullet_velocity
 export(float, 0, 1) var velocity_bound
 export(NodePath) var destroy_on_win
 
 func _ready():
-	$AnimationPlayer.play("fade")
-	
 	rng.randomize()
 	
-	$Player.position.x = viewport_size.x / 2
-	$Player.position.y = viewport_size.y - $Player.get_rect().size.y / 2
+	if final:
+		$Player.position = viewport_size / 2
+		$Player.make_final()
+	else:
+		$AnimationPlayer.play("fade")		
+		$Player.position.x = viewport_size.x / 2
+		$Player.position.y = viewport_size.y - $Player.get_rect().size.y / 3
 	
 	words = []
 	
-	var lines = paragraph.split("\n", false)
+	var lines = content.split("\n", false)
 	for line in lines:
 		for illegal in [".", ","]:
 			line = line.replace(illegal, "") 
@@ -61,9 +65,15 @@ func spawn_bullet(word):
 	
 	var bullet = TextBullet.instance()
 	bullet.text = word
-	bullet.position = Vector2(rng.randi_range(0, viewport_size.x), 0)
+	
+	if final:
+		$FinalPath/Follow.offset = rng.randf_range(0.0, 3000.0)
+		bullet.position = $FinalPath/Follow.position
+	else:
+		bullet.position = Vector2(rng.randi_range(0, viewport_size.x), 0)
 	
 	var direction = bullet.position.direction_to($Player.position)
+	bullet.position -= 20 * direction
 	var scalar = clamp(rng.randfn(1), 1 - velocity_bound, 1 + velocity_bound)
 	bullet.velocity = direction * average_bullet_velocity * scalar
 	$TextBullets.add_child(bullet)
@@ -78,7 +88,7 @@ func _on_Timer_timeout():
 			# res://levels/text.tscn
 			stopped = true
 			var text = Text.instance()
-			text.content = paragraph.split("\n")
+			text.content = content.split("\n")
 			get_parent().add_child(text)
 			text.connect("closed", self, "_on_Text_closed")
 		return
