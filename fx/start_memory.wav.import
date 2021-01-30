@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/start_memory.wav-362d0ffc13a2fdabe56505d3ea19c1a1.sample"
+
+[deps]
+
+source_file="res://fx/start_memory.wav"
+dest_files=[ "res://.import/start_memory.wav-362d0ffc13a2fdabe56505d3ea19c1a1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

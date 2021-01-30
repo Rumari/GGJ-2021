@@ -30,7 +30,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 content = "Lorem ipsum blablablalga ap hgla glas yhdka mhjda mjs hmdjn hwma dwmaohm dagtajsitjwi jwi jrdo wjifow iwo jfowi jwi gjowd jifwj ow jwfoi jwdojw oi"
-average_bullet_velocity = 20.0
+average_bullet_velocity = 50.0
 velocity_bound = 0.25
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
@@ -43,6 +43,7 @@ __meta__ = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
+bus = "Maybe needed"
 __meta__ = {
 "_edit_lock_": true
 }
@@ -50,7 +51,7 @@ __meta__ = {
 [node name="Transition" type="Node" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]
-modulate = Color( 0, 0, 0, 0 )
+modulate = Color( 0, 0, 0, 0.9 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )

@@ -3,6 +3,10 @@ extends Node2D
 const TextBullet = preload("res://levels/memory/text_bullet.tscn")
 const Text = preload("res://levels/text.tscn")
 
+const FinishWordFX = preload("res://fx/finish_word.wav")
+const StartFX = preload("res://fx/start_memory.wav")
+const WinFX = preload("res://fx/placeholder.wav")
+
 signal win
 signal game_over
 
@@ -38,6 +42,9 @@ func _ready():
 		$Player.position.x = viewport_size.x / 2
 		$Player.position.y = viewport_size.y - $Player.get_rect().size.y / 3
 	
+	$AudioStreamPlayer2D.set_stream(StartFX)
+	$AudioStreamPlayer2D.play()
+	
 	words = []
 	
 	var hidden_lines = hidden_content.split("\n", false)
@@ -65,9 +72,13 @@ func _input(event):
 							break
 						2:
 							current_first_characters.erase(chr)
+							$AudioStreamPlayer2D.set_stream(FinishWordFX)
+							$AudioStreamPlayer2D.play()
 							break
 			elif targeted_bullet.enter_character(chr) == 2:
 				targeted_bullet = null
+				$AudioStreamPlayer2D.set_stream(FinishWordFX)
+				$AudioStreamPlayer2D.play()
 
 func spawn_bullet(word):
 	current_first_characters.append(word[0])
@@ -104,11 +115,13 @@ func _process(delta):
 				text.content = content.split("\n")
 				get_parent().add_child(text)
 				text.connect("closed", self, "_on_Text_closed")
+				$AudioStreamPlayer2D.set_stream(WinFX)
+				$AudioStreamPlayer2D.play()
 			return
 			
 		var i = rng.randi_range(0, len(words) - 1)
 		if !current_first_characters.has(words[i][0]):
-			spawn_bullet(words[i])		
+			spawn_bullet(words[i])
 		else:
 			for j in range(len(words)):
 				if !current_first_characters.has(words[j][0]):
@@ -126,7 +139,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			if lost:
 				emit_signal("game_over")
 			else:
-				emit_signal("win")								
+				emit_signal("win")
 		queue_free()
 	started = true
 	
@@ -137,3 +150,4 @@ func _on_Text_closed():
 func _on_Player_game_over():
 	lost = true
 	$AnimationPlayer.play_backwards("fade")
+
