@@ -159,7 +159,6 @@ interaction = NodePath("Memory")
 [node name="Memory" parent="Entrance" instance=ExtResource( 5 )]
 memory_text = "This place... I remember this place. 
 The floor, the walls, they look exactly the same, after all this time...
-It looks like it was frozen long ago and thawed.
 It feels like just yesterday I would be getting home from school and dropping my backpack by the front door, right here,
 just before running to the living room to grab the console. 
 My dad would always get annoyed and make me take it all the way up to my room.
