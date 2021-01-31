@@ -57,7 +57,8 @@ func _ready():
 		var w = line.split(" ", false)
 		for i in w:
 			var f = i.strip_edges().to_upper()
-			words.append(f)
+			if len(f) != 0:
+				words.append(f)
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
