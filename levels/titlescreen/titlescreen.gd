@@ -37,3 +37,14 @@ func _on_Start_mouse_entered():
 
 func _on_Exit_mouse_entered():
 	$FX.play()
+
+func _on_Settings_pressed():
+	if Global.easy_mode == true:
+		$PopupMenu.set_item_checked(0, true)
+	$PopupMenu.popup()
+
+func _on_PopupMenu_id_pressed(id):
+	Global.easy_mode = true
+
+func _on_Settings_mouse_entered():
+	$FX.play()

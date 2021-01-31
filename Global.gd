@@ -1,6 +1,7 @@
 extends Node
 
 var DaBaby = false
+var easy_mode = false
 var current_scene = null
 var old_scene = null
 var level = 0
