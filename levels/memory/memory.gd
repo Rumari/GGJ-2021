@@ -76,8 +76,8 @@ func _input(event):
 							break
 						2:
 							current_first_characters.erase(chr)
-							$AudioStreamPlayer2D.set_stream(FinishWordFX)
-							$AudioStreamPlayer2D.play()
+							$FX2.set_stream(FinishWordFX)
+							$FX2.play()
 							break
 			elif targeted_bullet.enter_character(chr) == 2:
 				targeted_bullet = null
