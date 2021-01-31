@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://music/shmup.ogg" type="AudioStream" id=1]
 [ext_resource path="res://levels/memory/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fx/placeholder.wav" type="AudioStream" id=3]
 [ext_resource path="res://levels/memory/memory.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
@@ -68,6 +69,18 @@ curve = SubResource( 2 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
+
+[node name="FX2" type="AudioStreamPlayer" parent="."]
+pitch_scale = 1.5
+bus = "AudioBus4"
+
+[node name="FX3" type="AudioStreamPlayer" parent="."]
+pitch_scale = 2.0
+bus = "AudioBus5"
+
+[node name="FX4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "AudioBus6"
 
 [node name="Text" type="Node" parent="."]
 [connection signal="game_over" from="Player" to="." method="_on_Player_game_over"]

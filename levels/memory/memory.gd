@@ -5,7 +5,7 @@ const Text = preload("res://levels/text.tscn")
 
 const FinishWordFX = preload("res://fx/finish_word.wav")
 const StartFX = preload("res://fx/start_memory.wav")
-const WinFX = preload("res://fx/placeholder.wav")
+const WinFX = preload("res://fx/victory.wav")
 
 signal win
 signal game_over
@@ -81,8 +81,8 @@ func _input(event):
 							break
 			elif targeted_bullet.enter_character(chr) == 2:
 				targeted_bullet = null
-				$AudioStreamPlayer2D.set_stream(FinishWordFX)
-				$AudioStreamPlayer2D.play()
+				$FX2.set_stream(FinishWordFX)
+				$FX2.play()
 
 func spawn_bullet(word):
 	current_first_characters.append(word[0])
@@ -119,8 +119,8 @@ func _process(delta):
 				text.content = content.split("\n")
 				$Text.add_child(text)
 				text.connect("closed", self, "_on_Text_closed")
-				$AudioStreamPlayer2D.set_stream(WinFX)
-				$AudioStreamPlayer2D.play()
+				$FX3.set_stream(WinFX)
+				$FX3.play()
 			return
 			
 		var i = rng.randi_range(0, len(words) - 1)
