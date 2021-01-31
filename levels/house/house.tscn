@@ -50,6 +50,7 @@ shader_param/shake_color_rate = 0.01
 
 [sub_resource type="Animation" id=5]
 resource_name = "fade"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
@@ -61,6 +62,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
 }
 
 [node name="House" type="Spatial"]
@@ -113,38 +126,74 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Memory 1" parent="." instance=ExtResource( 6 )]
+[node name="Living Room" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8338, 0.274374, 4.6327 )
-interaction = NodePath("../../House/Memory 1/Memory")
+interaction = NodePath("Memory")
 
-[node name="Memory" parent="Memory 1" instance=ExtResource( 5 )]
-memory_text = "memory one"
+[node name="Memory" parent="Living Room" instance=ExtResource( 5 )]
+memory_text = "The living room, or as they call it, the heart of the house.
+I can remember waking up early to play video games, spending the afternoon watching cartoons, watching movies with my parents, all the great times I spent in this room...
+But why do I feel like this place was not exactly as I remember it being?...
+As my mom and dad got promotions, I began to have less time to talk with them.
+Growing up also meant more studying, and eventually I did not have time to stop by this room.
+But life is just like that. We have to adapt ourselves and make the most of what we get, living each and every moment as best as we can so we can look back on it and not regret it...
+I had long forgotten about this but I remember now.
+"
 rot_speed = 2.0
+duration = 120.0
+bullet_freq = 0.8
+average_bullet_velocity = 40.0
+velocity_bound = 0.9
 
-[node name="Memory 2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.538199, 0.274374, -4.50699 )
-interaction = NodePath("../../House/Memory 2/Memory")
+[node name="Entrance" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.80021, 0.274374, -0.0878206 )
+interaction = NodePath("Memory")
 
-[node name="Memory" parent="Memory 2" instance=ExtResource( 5 )]
-memory_text = "memory two"
+[node name="Memory" parent="Entrance" instance=ExtResource( 5 )]
+memory_text = "This place... I remember this place. The floor, the walls, they look exactly the same, after all this time I did not expect to feel like this.
+It looks frozen in time, same as it ever was.
+It feels like just yesterday I would be getting home from school and dropping my backpack by the front door, at this very place, just before running to the living room to grab the console. My dad would always get annoyed and make me take it all the way up to my room.
+Now that I am here it feels like I have never left.
+I had long forgotten about this but I remember now.
+"
 rot_speed = 2.0
+duration = 90.0
+bullet_freq = 0.6
+average_bullet_velocity = 20.0
+velocity_bound = 0.5
 
-[node name="Memory 3" parent="." instance=ExtResource( 6 )]
+[node name="Kitchen" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2904, 0.98695, -7.1362 )
-interaction = NodePath("../../House/Memory 3/Memory")
+interaction = NodePath("Memory")
 
-[node name="Memory" parent="Memory 3" instance=ExtResource( 5 )]
-memory_text = "memory three"
+[node name="Memory" parent="Kitchen" instance=ExtResource( 5 )]
+memory_text = "This room fills me with memories of our countless meals, my mom bringing the hot pot right out of the stove and the two of us around the table waiting to dig into her famous spaghetti.
+Being here I can even feel the smell. No one makes spaghetti like my mother made.
+Taking bites chatting about how the day had gone... In the end there was not that much to talk about... But well, the spaghetti was still good.
+I had long forgotten about this but I remember now.
+"
 rot_speed = 2.0
+duration = 90.0
+bullet_freq = 0.8
+average_bullet_velocity = 30.0
+velocity_bound = 0.3
 
-[node name="Memory 4" parent="." instance=ExtResource( 6 )]
+[node name="Parents Room" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59945, 0.274374, -7.41808 )
-interaction = NodePath("../../House/Memory 4/Memory")
+interaction = NodePath("Memory")
 
-[node name="Memory" parent="Memory 4" instance=ExtResource( 5 )]
-memory_text = "memory four"
-hidden_text = "test batata"
+[node name="Memory" parent="Parents Room" instance=ExtResource( 5 )]
+memory_text = "As much as I loved both of my parents, my dad is the one I have the fondest memories of.
+All the sunday afternoons that I would spend playing with him outside, the sunny days where we would go out fishing, driving back home from school, going out to the arcades to play...
+All these moments I will forever cherish, but it was not always like this, sometimes it felt like we hated each other...
+...We would argue for the most stupid reasons, and usually it ended up with me throwing a tantrum. But that is not what matters. These bittersweet moments are not what I liked him for, I loved him and I should have said that more often.
+I had long forgotten about this but I remember now.
+"
 rot_speed = 2.0
+duration = 90.0
+bullet_freq = 1.5
+average_bullet_velocity = 10.0
+velocity_bound = 0.5
 
 [node name="Confirm" type="Label" parent="."]
 visible = false
@@ -191,7 +240,6 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = 1.0
 bus = "FX"
 
 [node name="ColorRect" type="ColorRect" parent="."]
