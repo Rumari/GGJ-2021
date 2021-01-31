@@ -7,6 +7,8 @@ var selected = false
 var offset
 var valid = true
 
+signal hit
+
 export(Vector2) var velocity
 export(Color) var selected_color
 
@@ -38,4 +40,5 @@ func enter_character(chr):
 		
 func _on_area_entered(area):
 	area.damage()
+	emit_signal("hit")
 	queue_free()

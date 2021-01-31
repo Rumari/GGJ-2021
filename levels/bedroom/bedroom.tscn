@@ -59,7 +59,7 @@ Now that I remember them as they were, without my vision being clouded, I know t
 bullet_freq = 0.922166
 duration = 173.0
 average_bullet_velocity = 30.0062
-velocity_bound = 0.9
+velocity_bound = 0.5
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.092475, 0, -0.995715, 0, 1, 0, 0.995715, 0, -0.092475, -4.91486, 0.894852, 1.6287 )
@@ -67,7 +67,6 @@ transform = Transform( -0.092475, 0, -0.995715, 0, 1, 0, 0.995715, 0, -0.092475,
 [node name="Transition" type="Node" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {

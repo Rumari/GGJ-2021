@@ -72,6 +72,7 @@ func _input(event):
 						1:
 							bullet.select()
 							targeted_bullet = bullet
+							targeted_bullet.connect("hit", self, "_on_Bullet_destroyed")
 							current_first_characters.erase(chr)
 							break
 						2:
@@ -173,3 +174,6 @@ func _on_Player_game_over():
 	lost = true
 	$AnimationPlayer.play_backwards("fade")
 	$Transition/ColorRect.show()
+
+func _on_Bullet_destroyed():
+	targeted_bullet = null
