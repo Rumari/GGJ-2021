@@ -8,12 +8,15 @@ export(float) var bullet_freq = 1
 export(float) var duration = 120.0
 export(float) var average_bullet_velocity
 export(float, 0, 1) var velocity_bound
+export(float) var easy_mode_bullet_freq = 0.8
 
 var start_fight = 0
 var memory = null
 
 func _ready():
 	$TransitionAnimation.play_backwards("fade")
+	if Global.easy_mode == true:
+		bullet_freq = easy_mode_bullet_freq
 	
 func _process(delta):
 	if memory != null:
