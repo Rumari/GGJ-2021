@@ -23,6 +23,6 @@ func _on_Exit_pressed():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if target == "start":
-		Global.goto_scene_from_path("res://levels/house/house.tscn")
+		Global.goto_scene_from_path("res://levels/start/start.tscn")
 	elif target == "exit":
 		get_tree().quit()	
