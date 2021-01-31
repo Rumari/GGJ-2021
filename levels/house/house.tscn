@@ -374,7 +374,7 @@ region_enabled = true
 region_rect = Rect2( 144.836, 23.1958, 33.5885, 56.9639 )
 
 [node name="BeanBag" parent="Furniture" instance=ExtResource( 14 )]
-transform = Transform( 0.0766494, 0, -0.997058, 0, 1, 0, 0.997058, 0, 0.0766494, -5.09988, 0.706607, 8.56382 )
+transform = Transform( 0.0766494, 0, -0.997058, 0, 1, 0, 0.997058, 0, 0.0766494, -5.09988, 0.454123, 8.56382 )
 pixel_size = 0.04
 texture = ExtResource( 15 )
 region_enabled = true
