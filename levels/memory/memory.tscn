@@ -27,7 +27,8 @@ _data = {
 [node name="Memory" type="Node2D"]
 script = ExtResource( 4 )
 content = "Sample text"
-tutorial_content = "[Type the words to destroy them before they hit you]"
+tutorial_content = "There's so much on my mind, I should write it down.
+[Type the words to destroy them before they hit you]"
 average_bullet_velocity = 20.0
 velocity_bound = 0.5
 
