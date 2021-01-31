@@ -11,7 +11,7 @@ func _on_Timer_timeout():
 	Global.DaBaby = true
 
 func _on_Start_pressed():
-	get_tree().change_scene("res://levels/house/house.tscn")
+	Global.goto_scene_from_path("res://levels/house/house.tscn")
 
 func _on_Exit_pressed():
 	get_tree().quit()

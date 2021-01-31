@@ -14,7 +14,7 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
 func goto_scene_from_path(path):
-	goto_scene(ResourceLoader.load(path))
+	goto_scene(ResourceLoader.load(path).instance())
 	
 func save_old_and_goto_scene(scene):
 	root.remove_child(current_scene)
@@ -35,7 +35,7 @@ func goto_scene(scene):
 
 func _deferred_goto_scene(scene):
 	current_scene = scene
-	get_tree().get_root().add_child(current_scene)
+	root.add_child(current_scene)
 	get_tree().set_current_scene(current_scene)
 
 	for np in destroy_on_load:
