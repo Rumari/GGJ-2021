@@ -14,6 +14,7 @@ func _enter_tree():
 		add_child(timer)
 		timer.start()
 	$AnimationPlayer.play("fade")
+	$CRT/CRT.modulate = Color(1, 1, 1, (4 - Global.level) * 0.2)	
 	
 func _on_Timer_timeout():
 	text = Text.instance()
