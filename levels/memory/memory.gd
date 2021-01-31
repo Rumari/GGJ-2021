@@ -27,7 +27,7 @@ export(String, MULTILINE) var hidden_content
 export(float) var average_bullet_velocity
 export(float, 0, 1) var velocity_bound
 export(float, 0.1, 10) var bullet_freq = 1
-export(float) var duration = 120.0
+export(float) var duration = 10.0
 export(NodePath) var destroy_on_win
 
 func _ready():

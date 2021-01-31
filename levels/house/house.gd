@@ -13,6 +13,7 @@ func _enter_tree():
 		timer.connect("timeout", self, "_on_Timer_timeout")
 		add_child(timer)
 		timer.start()
+	$AnimationPlayer.play("fade")
 	
 func _on_Timer_timeout():
 	text = Text.instance()
