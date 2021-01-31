@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/deco1.png-f5a0519433fd1fb32a53e7ff9a4e2f05.stex"
+path="res://.import/deco_bathroom.png-838034e892f5846ff0af4a83a809b15c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/deco1.png"
-dest_files=[ "res://.import/deco1.png-f5a0519433fd1fb32a53e7ff9a4e2f05.stex" ]
+source_file="res://sprites/deco_bathroom.png"
+dest_files=[ "res://.import/deco_bathroom.png-838034e892f5846ff0af4a83a809b15c.stex" ]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://models/house.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://levels/player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,10 @@
 [ext_resource path="res://levels/house/interactions/door.gd" type="Script" id=11]
 [ext_resource path="res://music/song1.ogg" type="AudioStream" id=12]
 [ext_resource path="res://models/tileset.material" type="Material" id=13]
+[ext_resource path="res://levels/deco.tscn" type="PackedScene" id=14]
+[ext_resource path="res://sprites/deco2.png" type="Texture" id=15]
+[ext_resource path="res://sprites/deco_bathroom.png" type="Texture" id=16]
+[ext_resource path="res://sprites/deco1.png" type="Texture" id=17]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -200,4 +204,179 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade = SubResource( 5 )
+
+[node name="Furniture" type="Spatial" parent="."]
+
+[node name="WaterBottle" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5054, 1.22954, 4.35986 )
+pixel_size = 0.015
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 72.3404, 106.646, 10.3975, 27.8664 )
+
+[node name="WaterBottle2" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4355, 1.25287, 4.37617 )
+pixel_size = 0.015
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 72.3404, 106.646, 10.3975, 27.8664 )
+
+[node name="KitchenSink" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5926, 1.21305, 3.47794 )
+pixel_size = 0.03
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 12.8859, 65.1266, 24.5268, 21.2018 )
+
+[node name="Trash" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.56705, 0.529083, 3.30438 )
+pixel_size = 0.02
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 134.982, 94.4417, 29.543, 50.7623 )
+
+[node name="Bottle" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4822, 1.30456, 4.39774 )
+pixel_size = 0.02
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 96.5417, 107.449, 8.73883, 26.9259 )
+
+[node name="Painting" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( -1.74846e-07, 0, 1, 0, 4, 0, -4, 0, -4.37114e-08, -6.93241, 2.04366, 1.87859 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( -0.263397, 144.084, 31.6944, 35.314 )
+is_billboard = false
+
+[node name="Painting2" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 1, -3.49072, 2.04366, 4.07391 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 40.9617, 145.104, 32.3851, 35.0838 )
+is_billboard = false
+
+[node name="Toilet" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4825, 0.660273, -4.59611 )
+pixel_size = 0.03
+texture = ExtResource( 16 )
+region_enabled = true
+region_rect = Rect2( 31.959, -0.289268, 24.4173, 40.4813 )
+
+[node name="Sink" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4961, 0.970867, -7.56131 )
+pixel_size = 0.025
+texture = ExtResource( 16 )
+region_enabled = true
+region_rect = Rect2( 0.444946, -0.00829506, 23.6462, 37.0115 )
+
+[node name="Plant" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.29551, 0.538545, -7.34182 )
+pixel_size = 0.025
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 63.596, 50.5276, 25.6312, 40.8676 )
+
+[node name="ToiletPaper" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3535, 0.137102, -4.40748 )
+pixel_size = 0.015
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 121.802, 16.7665, 27.6301, 14.5219 )
+
+[node name="TableWithLamp" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34556, 0.712763, 2.10533 )
+pixel_size = 0.025
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 115.696, 33.7453, 55.1758, 52.7976 )
+
+[node name="Chair" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.92633, 0.669945, -2.27525 )
+pixel_size = 0.025
+texture = ExtResource( 17 )
+region_enabled = true
+region_rect = Rect2( -0.420124, 31.6983, 25.831, 48.5776 )
+
+[node name="Broom" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.765, 0.790616, -4.4765 )
+pixel_size = 0.025
+texture = ExtResource( 17 )
+region_enabled = true
+region_rect = Rect2( 66.7499, 16.9355, 16.321, 62.3284 )
+
+[node name="Wine" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6259, 0.299297, -7.42159 )
+pixel_size = 0.025
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 10.7946, 9.69829, 28.4012, 20.4334 )
+
+[node name="Bottles" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6408, 1.37068, -7.42159 )
+pixel_size = 0.025
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 72.8275, 106.534, 32.5025, 27.4536 )
+
+[node name="Thing" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4742, 0.419568, -7.42159 )
+pixel_size = 0.025
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 92.8263, 150.787, 20.4334, 29.5178 )
+
+[node name="Thing2" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.51514, 1.06563, 4.43772 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 40.8664, 119.911, 9.38139, 11.1806 )
+
+[node name="KitchenTable" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.15959, 0.350444, -1.53706 )
+pixel_size = 0.025
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 115.735, 56.2471, 50.6528, 29.5284 )
+
+[node name="Potatoes" parent="Furniture/KitchenTable" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0105581, 0.523025, 0 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 59.9797, 5.86734, 61.0433, 30.5859 )
+
+[node name="CoatRack" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02028, 1.14818, 1.88296 )
+pixel_size = 0.03
+texture = ExtResource( 17 )
+region_enabled = true
+region_rect = Rect2( 36.4753, 8.14599, 23.1698, 71.1842 )
+
+[node name="TableWithFlower" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.844204, 0.584194, -1.90356 )
+pixel_size = 0.025
+texture = ExtResource( 17 )
+region_enabled = true
+region_rect = Rect2( 74.4015, 85.048, 42.51, 47.6328 )
+
+[node name="Sofa" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 0.0766494, 0, -0.997058, 0, 1, 0, 0.997058, 0, 0.0766494, -2.69131, 0.599337, 7.02327 )
+pixel_size = 0.03
+texture = ExtResource( 17 )
+region_enabled = true
+region_rect = Rect2( 92.0518, 31.5756, 46.5449, 49.712 )
+
+[node name="TV" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 0.0766494, 0, -0.997058, 0, 1, 0, 0.997058, 0, 0.0766494, -7.0509, 0.863474, 6.33172 )
+pixel_size = 0.03
+texture = ExtResource( 17 )
+region_enabled = true
+region_rect = Rect2( 144.836, 23.1958, 33.5885, 56.9639 )
+
+[node name="BeanBag" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 0.0766494, 0, -0.997058, 0, 1, 0, 0.997058, 0, 0.0766494, -5.09988, 0.706607, 8.56382 )
+pixel_size = 0.04
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 139.609, 153.915, 23.6462, 23.5177 )
 [connection signal="animation_finished" from="Door/Door /AnimationPlayer" to="Door/Door " method="_on_AnimationPlayer_animation_finished"]
