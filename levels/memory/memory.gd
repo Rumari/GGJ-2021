@@ -19,10 +19,12 @@ var stopped = false
 var lost = false
 var final = false
 var time = 0.0
+var tutorial = null
 
 onready var viewport_size = get_viewport().size
 
 export(String, MULTILINE) var content
+export(String, MULTILINE) var tutorial_content
 export(String, MULTILINE) var hidden_content
 export(float) var average_bullet_velocity
 export(float, 0, 1) var velocity_bound
@@ -41,13 +43,10 @@ func _ready():
 		$Player.make_final()
 		$Transition/ColorRect.hide()
 	else:
-		$AnimationPlayer.play("fade")		
 		$Player.position.x = viewport_size.x / 2
 		$Player.position.y = viewport_size.y - $Player.get_rect().size.y / 3
-	
-	$AudioStreamPlayer2D.set_stream(StartFX)
-	$AudioStreamPlayer2D.play()
-	
+		$AnimationPlayer.play("fade")
+		
 	words = []
 	
 	var hidden_lines = hidden_content.split("\n", false)
@@ -104,7 +103,7 @@ func spawn_bullet(word):
 func _process(delta):
 	time += delta
 	duration -= delta
-		
+	
 	if !started or stopped:
 		return
 
@@ -116,7 +115,7 @@ func _process(delta):
 				stopped = true
 				var text = Text.instance()
 				text.content = content.split("\n")
-				get_parent().add_child(text)
+				$Text.add_child(text)
 				text.connect("closed", self, "_on_Text_closed")
 				$AudioStreamPlayer2D.set_stream(WinFX)
 				$AudioStreamPlayer2D.play()
@@ -144,13 +143,28 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			else:
 				emit_signal("win")
 		queue_free()
-	started = true
+	else:
+		if Global.level == 0:
+			# Show tutorial
+			tutorial = Text.instance()
+			tutorial.content = tutorial_content.split("\n")
+			$Text.add_child(tutorial)
+			tutorial.connect("closed", self, "_on_Tutorial_closed")
+		else:
+			started = true
+			$AudioStreamPlayer2D.set_stream(StartFX)
+			$AudioStreamPlayer2D.play()
 	
 func _on_Text_closed():
 	Global.level += 1
 	$AnimationPlayer.play_backwards("fade")
 	$Transition/ColorRect.show()
-	
+
+func _on_Tutorial_closed():
+	started = true
+	tutorial.queue_free()
+	$AudioStreamPlayer2D.set_stream(StartFX)
+	$AudioStreamPlayer2D.play()
 	
 func _on_Player_game_over():
 	lost = true
