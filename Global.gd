@@ -7,7 +7,6 @@ var level = 0
 
 onready var root = get_tree().get_root()
 
-
 var destroy_on_load = []
 
 func _ready():

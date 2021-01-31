@@ -1,13 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://levels/text.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/ending/ending.gd" type="Script" id=2]
 
 [node name="Ending" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Text" parent="." instance=ExtResource( 1 )]
 content = [ "This is the first line", "This is the second line", "Third line", "Fourth line", "End" ]
+[connection signal="closed" from="Text" to="." method="_on_Text_closed"]
