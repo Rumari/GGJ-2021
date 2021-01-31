@@ -1,13 +1,5 @@
 extends Control
 
-func _ready():
-	$Control.hide()
-	$Control/Credits.set_process(false)	
-
-func _on_Text_closed():
-	$Control.show()
-	$Control/Credits.set_process(true)
-
 func _on_Credits_end():
 	$AnimationPlayer.play("fade")
 

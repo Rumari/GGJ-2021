@@ -57,7 +57,6 @@ func _ready():
 		var w = line.split(" ", false)
 		for i in w:
 			var f = i.strip_edges().to_upper()
-			print_debug("\"", f, "\"")
 			words.append(f)
 
 func _input(event):
@@ -97,7 +96,7 @@ func spawn_bullet(word):
 		bullet.position = Vector2(rng.randi_range(0, viewport_size.x), 0)
 	
 	var direction = bullet.position.direction_to($Player.position)
-	bullet.position -= 20 * direction
+	bullet.position -= 5 * direction
 	var scalar = clamp(rng.randfn(1), 1 - velocity_bound, 1 + velocity_bound)
 	bullet.velocity = direction * average_bullet_velocity * scalar
 	$TextBullets.add_child(bullet)

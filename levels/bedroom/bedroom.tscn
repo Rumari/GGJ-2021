@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://models/bedroom.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://levels/player.tscn" type="PackedScene" id=2]
@@ -37,7 +37,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "bullet_freq"
+resource_name = "fight"
 length = 200.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:bullet_freq")
@@ -46,8 +46,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0.316676, -1.81447, -0.102364, 19.328, 1.0904, 0.451264, -17.4253, 0.415244, 10.0244, -0.238881, 0.835896, -18.7112, 0.666445, 20.0368, -0.71366, 1.19953, -4.82533, -0.0777085, 34.4359, 0.554565 ),
-"times": PoolRealArray( 0.3, 40.3, 72.2, 200 )
+"points": PoolRealArray( 0.922166, -2.60559, 0.152157, 3.04465, 0.0603798, 0.599763, -1.81447, -0.102364, 1.53591, -0.0351683, 1.01744, -3.8239, -0.652101, 1.32321, 0.253595, 1, -0.25, 0, 4.57903, -0.362279, 0.8, -0.25, 0, 1.69794, -0.219106, 0.139188, -2.86779, 0.104826, 2.67272, -0.0104827, 0.921414, -3.98265, 0.0125792, 6.57384, -0.0754741, 4, -1.90079, -0.104825, 2.46114, 0.034942, 0.8, -2.14067, -0.0104825, 3.46542, -0.0314478, 1.01274, -2.60559, 0.152157, 4.85992, -0.739652, -0.0288146, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 15.2, 30.7, 62.1, 69.1, 97.9, 109.3, 123.2, 160.7, 183.6 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:average_bullet_velocity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4, 73.6, 97.5, 125.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 30.0, 35.0, 10.0, 35.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:velocity_bound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5, 89.8, 98.5, 118.3, 127.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.8, 0.9, 0.1, 0.1, 0.8 ]
 }
 
 [sub_resource type="CubeMesh" id=5]
@@ -61,14 +85,21 @@ uv1_triplanar = true
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 0.5962, 0.202891, 1.19797 )
 
+[sub_resource type="Environment" id=8]
+ambient_light_color = Color( 1, 0.980392, 0.917647, 1 )
+
 [node name="Bedroom" type="Spatial"]
 script = ExtResource( 4 )
-memory_content = "Lorem ipsum dolor sit amet"
-bullet_freq = 0.316676
-duration = 10.0
+memory_content = "I cannot believe I had forgotten almost everything about this place.
+Looking back, I can surely say it was a good time. I once thought that forgetting about my parents, and trying to get rid of that part of myself, would make me feel better and help me grow. I was never truly able to separate myself from them. Without accepting the past, the parts that we want to forget, the parts that we don’t want to admit belong to us, one cannot grow. Now that I remember them as they were, without my vision being clouded, I know that I should cherish these precious moments, as they have made me into who I am today.
+"
+bullet_freq = 0.922166
+duration = 173.0
+average_bullet_velocity = 30.0062
+velocity_bound = 0.9
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.092475, 0, -0.995715, 0, 1, 0, 0.995715, 0, -0.092475, -4.91486, 0.472724, 1.6287 )
+transform = Transform( -0.092475, 0, -0.995715, 0, 1, 0, 0.995715, 0, -0.092475, -4.91486, 0.894852, 1.6287 )
 
 [node name="Fight" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83293, 0.259, 1.502 )
@@ -142,8 +173,8 @@ __meta__ = {
 [node name="TransitionAnimation" type="AnimationPlayer" parent="."]
 anims/fade = SubResource( 3 )
 
-[node name="BulletFreq" type="AnimationPlayer" parent="."]
-anims/bullet_freq = SubResource( 4 )
+[node name="FightAnimation" type="AnimationPlayer" parent="."]
+anims/fight = SubResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = "FX"
@@ -462,5 +493,8 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, -1, 0, 1.62921e-07, 5.991, 
 pixel_size = 0.025
 texture = ExtResource( 15 )
 is_billboard = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 8 )
 [connection signal="body_entered" from="Fight/TriggerArea" to="." method="_on_TriggerArea_body_entered"]
 [connection signal="animation_finished" from="TransitionAnimation" to="." method="_on_AnimationPlayer_animation_finished"]

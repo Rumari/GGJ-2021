@@ -6,6 +6,8 @@ const Ending = preload("res://levels/ending/ending.tscn")
 export(String, MULTILINE) var memory_content
 export(float) var bullet_freq = 1
 export(float) var duration = 120.0
+export(float) var average_bullet_velocity
+export(float, 0, 1) var velocity_bound
 
 var start_fight = 0
 var memory = null
@@ -16,6 +18,8 @@ func _ready():
 func _process(delta):
 	if memory != null:
 		memory.bullet_freq = bullet_freq
+		memory.average_bullet_velocity = average_bullet_velocity
+		memory.velocity_bound = velocity_bound
 
 func _on_TriggerArea_body_entered(body):
 	start_fight = 1
@@ -28,6 +32,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$Fight/Camera.current = true
 		$Player.translation.x = $Fight.translation.x
 		$Player.translation.z = $Fight.translation.z
+		$Player.rotation_degrees.y = -90.0
 		$Player.visible = false
 		$Player.set_process(false)
 		$Player.set_physics_process(false)
@@ -42,11 +47,13 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		memory.connect("win", self, "_on_Memory_win")
 		memory.connect("game_over", self, "_on_Memory_game_over")
 		$Fight.add_child(memory)
-		$BulletFreq.play("bullet_freq")
+		$FightAnimation.play("fight")
 		
 func _on_Memory_win():
 	Global.level += 1
-	Global.goto_scene(Ending.instance())
+	var scene = Ending.instance()
+	scene.content = memory_content
+	Global.goto_scene(scene)
 
 func _on_Memory_game_over():
 	get_tree().reload_current_scene()
