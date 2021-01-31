@@ -52,7 +52,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func _on_Memory_win():
 	Global.level += 1
 	var scene = Ending.instance()
-	scene.content = memory_content
 	Global.goto_scene(scene)
 
 func _on_Memory_game_over():

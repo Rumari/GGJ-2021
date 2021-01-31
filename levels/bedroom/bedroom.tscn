@@ -91,7 +91,10 @@ ambient_light_color = Color( 1, 0.980392, 0.917647, 1 )
 [node name="Bedroom" type="Spatial"]
 script = ExtResource( 4 )
 memory_content = "I cannot believe I had forgotten almost everything about this place.
-Looking back, I can surely say it was a good time. I once thought that forgetting about my parents, and trying to get rid of that part of myself, would make me feel better and help me grow. I was never truly able to separate myself from them. Without accepting the past, the parts that we want to forget, the parts that we don’t want to admit belong to us, one cannot grow. Now that I remember them as they were, without my vision being clouded, I know that I should cherish these precious moments, as they have made me into who I am today.
+Looking back, I can surely say it was a good time.
+I once thought that forgetting about my parents, and trying to get rid of that part of myself, would make me feel better and help me grow.
+I was never truly able to separate myself from them. Without accepting the past, the parts that we want to forget, the parts that we don’t want to admit belong to us, one cannot grow.
+Now that I remember them as they were, without my vision being clouded, I know that I should cherish these precious moments, as they have made me into who I am today.
 "
 bullet_freq = 0.922166
 duration = 173.0
