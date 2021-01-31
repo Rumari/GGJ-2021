@@ -3,7 +3,6 @@ extends Area
 export(NodePath) var interaction
 
 func _enter_tree():
-
 	get_parent().get_node("Confirm").hide()
 	get_parent().get_node("GlitchShader/Glitch").hide()
 

@@ -1,6 +1,7 @@
 extends Control
 
 export(Texture) var end_texture
+var target = ""
 
 func _enter_tree():
 	if Global.level == 5:
@@ -11,7 +12,17 @@ func _on_Timer_timeout():
 	Global.DaBaby = true
 
 func _on_Start_pressed():
-	Global.goto_scene_from_path("res://levels/house/house.tscn")
+	target = "start"
+	$AnimationPlayer.play("fade")
+	$ColorRect.show()
 
 func _on_Exit_pressed():
-	get_tree().quit()
+	target = "exit"
+	$AnimationPlayer.play("fade")
+	$ColorRect.show()
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if target == "start":
+		Global.goto_scene_from_path("res://levels/house/house.tscn")
+	elif target == "exit":
+		get_tree().quit()	
