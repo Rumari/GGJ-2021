@@ -12,5 +12,5 @@ __meta__ = {
 }
 
 [node name="Text" parent="." instance=ExtResource( 1 )]
-content = [ "The house where you grew up is gonna be sold and you return for one last visit.", "You haven’t been here in a long time.", "[Use the arrow keys or WASD to move and rotate the character]", "[You can interact with objects using the E key]" ]
+content = [ "The house where you grew up is going to be sold and you return for one last visit.", "You haven't been here in a long time.", "[Use the arrow keys or WASD to move and rotate the character]", "[You can interact with objects using the E key]" ]
 [connection signal="closed" from="Text" to="." method="_on_Text_closed"]
