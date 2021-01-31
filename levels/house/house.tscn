@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://models/house.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://levels/player.tscn" type="PackedScene" id=2]
@@ -17,6 +17,9 @@
 [ext_resource path="res://sprites/deco2.png" type="Texture" id=15]
 [ext_resource path="res://sprites/deco_bathroom.png" type="Texture" id=16]
 [ext_resource path="res://sprites/deco1.png" type="Texture" id=17]
+[ext_resource path="res://models/Bed.tscn" type="PackedScene" id=18]
+[ext_resource path="res://sprites/tapete2.png" type="Texture" id=19]
+[ext_resource path="res://sprites/tapete1.png" type="Texture" id=20]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -288,6 +291,20 @@ texture = ExtResource( 15 )
 region_enabled = true
 region_rect = Rect2( 12.8859, 65.1266, 24.5268, 21.2018 )
 
+[node name="Tapete" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, -2.76236, 0.0262402, 0.122796 )
+pixel_size = 0.04
+texture = ExtResource( 19 )
+region_rect = Rect2( 12.8859, 65.1266, 24.5268, 21.2018 )
+is_billboard = false
+
+[node name="Tapete2" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, -4.86648, 0.0179193, 7.05633 )
+pixel_size = 0.03
+texture = ExtResource( 20 )
+region_rect = Rect2( 12.8859, 65.1266, 24.5268, 21.2018 )
+is_billboard = false
+
 [node name="Trash" parent="Furniture" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.56705, 0.529083, 3.30438 )
 pixel_size = 0.02
@@ -330,6 +347,14 @@ texture = ExtResource( 16 )
 region_enabled = true
 region_rect = Rect2( 0.444946, -0.00829506, 23.6462, 37.0115 )
 
+[node name="Sink2" parent="Furniture" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4556, 1.73788, -7.98153 )
+pixel_size = 0.025
+texture = ExtResource( 17 )
+region_enabled = true
+region_rect = Rect2( 31.7301, 95.2014, 32.7706, 35.344 )
+is_billboard = false
+
 [node name="Plant" parent="Furniture" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.29551, 0.538545, -7.34182 )
 pixel_size = 0.025
@@ -345,7 +370,7 @@ region_enabled = true
 region_rect = Rect2( 121.802, 16.7665, 27.6301, 14.5219 )
 
 [node name="TableWithLamp" parent="Furniture" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34556, 0.712763, 2.10533 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00637, 0.671273, -4.73008 )
 pixel_size = 0.025
 texture = ExtResource( 15 )
 region_enabled = true
@@ -434,9 +459,12 @@ region_enabled = true
 region_rect = Rect2( 144.836, 23.1958, 33.5885, 56.9639 )
 
 [node name="BeanBag" parent="Furniture" instance=ExtResource( 14 )]
-transform = Transform( 0.0766494, 0, -0.997058, 0, 1, 0, 0.997058, 0, 0.0766494, -5.09988, 0.454123, 8.56382 )
+transform = Transform( 0.0766494, 0, -0.997058, 0, 1, 0, 0.997058, 0, 0.0766494, -2.6544, 0.480936, 8.78859 )
 pixel_size = 0.04
 texture = ExtResource( 15 )
 region_enabled = true
 region_rect = Rect2( 139.609, 153.915, 23.6462, 23.5177 )
+
+[node name="Bed" parent="Furniture" instance=ExtResource( 18 )]
+transform = Transform( -3.25841e-07, 0, 1, 0, 1, 0, -2, 0, -1.62921e-07, -1.39026, 0.203, -6.62609 )
 [connection signal="animation_finished" from="Door/Door /AnimationPlayer" to="Door/Door " method="_on_AnimationPlayer_animation_finished"]
