@@ -46,6 +46,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		memory.duration = duration
 		memory.connect("win", self, "_on_Memory_win")
 		memory.connect("game_over", self, "_on_Memory_game_over")
+		$Transition/ColorRect.modulate = Color(0, 0, 0, 0.2)
 		$Fight.add_child(memory)
 		$FightAnimation.play("fight")
 		

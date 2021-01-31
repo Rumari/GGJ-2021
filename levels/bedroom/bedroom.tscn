@@ -64,6 +64,16 @@ velocity_bound = 0.9
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.092475, 0, -0.995715, 0, 1, 0, 0.995715, 0, -0.092475, -4.91486, 0.894852, 1.6287 )
 
+[node name="Transition" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Fight" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83293, 0.259, 1.502 )
 
@@ -122,16 +132,6 @@ pixel_size = 0.022
 double_sided = false
 texture = ExtResource( 7 )
 hframes = 4
-
-[node name="Transition" type="Node" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="Transition"]
-modulate = Color( 1, 1, 1, 0 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TransitionAnimation" type="AnimationPlayer" parent="."]
 anims/fade = SubResource( 3 )
