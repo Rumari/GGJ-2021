@@ -1,12 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/text.gd" type="Script" id=1]
-[ext_resource path="res://arcadeclassic.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://arcadeclassic.tres" type="DynamicFont" id=3]
+[ext_resource path="res://m5x7.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://m5x7.tres" type="DynamicFont" id=3]
 
-
-[sub_resource type="DynamicFont" id=1]
-extra_spacing_space = 3
+[sub_resource type="DynamicFont" id=3]
+size = 35
 font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=2]
@@ -50,7 +49,7 @@ __meta__ = {
 [node name="Label" type="RichTextLabel" parent="MarginContainer"]
 margin_right = 924.0
 margin_bottom = 500.0
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "Sample text"
 text = "Sample text"
