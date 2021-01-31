@@ -139,12 +139,12 @@ memory_text = "The living room, or as they call it, the heart of the house.
 I remember waking up early to play video games, spending the afternoon watching cartoons, watching movies with my parents, all the great times I spent in this room...
 But why do I feel like this place... has changed?
 It used to be so lively before...
-Although, because my parents were promoted, I began to have less time to talk with them. 
+Although, since my parents were promoted, I had less time to talk with them. 
 Maybe it has not changed that much after all.
 Growing up also meant more studying, and eventually I did not have time to stop by this room.
 But life is just like that. 
-We have to adapt and make the most of what we get, living each and every moment as best as we can so we can look back on it and not regret it.
-I had long forgotten about this but I remember now.
+We have to adapt and make the most of what we get, living each and every moment as best as we can so that we can look back on it and not regret it.
+I had long forgotten about this, but I remember now.
 "
 rot_speed = 2.0
 duration = 120.0
@@ -163,7 +163,7 @@ It feels like just yesterday I would be getting home from school and dropping my
 just before running to the living room to grab the console. 
 My dad would always get annoyed and make me take it all the way up to my room.
 Now that I am here it feels like I have never left.
-I had long forgotten about this but I remember now."
+I had long forgotten about this, but I remember now."
 rot_speed = 2.0
 duration = 90.0
 bullet_freq = 0.6
@@ -175,14 +175,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2904, 0.98695, -7.1362 )
 interaction = NodePath("Memory")
 
 [node name="Memory" parent="Kitchen" instance=ExtResource( 5 )]
-memory_text = "This room fills me with memories of our countless meals.
-My mom bringing the hot pot right out of the stove and the two of us around the table waiting to dig into her famous spaghetti.
-Being here I can even feel the smell. 
-No one makes spaghetti like my mother made.
+memory_text = "This room fills me with countless memories of our shared meals.
+My mom bringing the hot pot right out of the stove, the two of us sat around the table waiting to dig into her famous spaghetti.
+Being here, I can even feel the smell. 
+No one makes spaghetti like my mother.
 Taking bites chatting about how the day had gone... 
 In the end there was not that much to talk about... 
-But well, the spaghetti was still good.
-I had long forgotten about this but I remember now."
+But, well, the spaghetti was still good.
+I had long forgotten about this, but I remember now."
 rot_speed = 2.0
 duration = 90.0
 bullet_freq = 0.8
@@ -198,12 +198,12 @@ memory_text = "As much as I loved both of my parents, my dad is the one I have t
 All the sunday afternoons that I would spend playing with him outside...
 The sunny days where we would go out fishing...
 Driving back home from school, going out to the arcades to play...
-All these moments I will forever cherish, but it was not always like this, sometimes it felt like we hated each other...
+I will forever cherish these moments, but it was not always like this, sometimes it felt like we hated each other...
 ...We would argue for the most stupid reasons, and usually it ended up with me throwing a tantrum. 
 But that is not what matters. 
 These bittersweet moments are not what I liked him for. 
 I loved him and I should have said that more often.
-I had long forgotten about this but I remember now."
+I had long forgotten about this, but I remember now."
 rot_speed = 2.0
 duration = 90.0
 bullet_freq = 1.5
