@@ -52,11 +52,13 @@ func _ready():
 	var hidden_lines = hidden_content.split("\n", false)
 	var lines = content.split("\n", false)
 	for line in (lines + hidden_lines):
-		for illegal in [".", ","]:
-			line = line.replace(illegal, "") 
+		for illegal in [".", ",", "?", "!"]:
+			line = line.replacen(illegal, " ") 
 		var w = line.split(" ", false)
 		for i in w:
-			words.append(i.strip_edges().to_upper())
+			var f = i.strip_edges().to_upper()
+			print_debug("\"", f, "\"")
+			words.append(f)
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
