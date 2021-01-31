@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://models/bedroom.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://levels/player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,12 @@
 [ext_resource path="res://sprites/player_walk.png" type="Texture" id=7]
 [ext_resource path="res://levels/deco.tscn" type="PackedScene" id=8]
 [ext_resource path="res://sprites/deco1.png" type="Texture" id=9]
+[ext_resource path="res://sprites/deco2.png" type="Texture" id=10]
+[ext_resource path="res://sprites/tapete2.png" type="Texture" id=11]
+[ext_resource path="res://sprites/bed.png" type="Texture" id=12]
+[ext_resource path="res://sprites/chemicalromance.png" type="Texture" id=13]
+[ext_resource path="res://sprites/poster1.png" type="Texture" id=14]
+[ext_resource path="res://sprites/bowie.png" type="Texture" id=15]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 0.634509, 1.07399 )
@@ -44,71 +50,22 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.3, 40.3, 72.2, 200 )
 }
 
+[sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 12 )
+uv1_scale = Vector3( 1, 0, 0.482 )
+uv1_offset = Vector3( 0, 0.213, 0.763 )
+uv1_triplanar = true
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.5962, 0.202891, 1.19797 )
+
 [node name="Bedroom" type="Spatial"]
 script = ExtResource( 4 )
 memory_content = "Lorem ipsum dolor sit amet"
 bullet_freq = 0.316676
 duration = 10.0
-
-[node name="Books" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.45923, 1.24559, 0.610724 )
-
-[node name="Book 1" parent="Books" instance=ExtResource( 8 )]
-pixel_size = 0.017
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( 70.354, 157.646, 24.4933, 25.6597 )
-
-[node name="Book 2" parent="Books" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.659642 )
-pixel_size = 0.017
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( 101.128, 157.646, 21.9454, 23.7767 )
-
-[node name="Book 3" parent="Books" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.45174 )
-pixel_size = 0.017
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( 132.198, 157.581, 22.0737, 23.6137 )
-
-[node name="Book 4" parent="Books" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.11528 )
-pixel_size = 0.017
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( 159.919, 157.581, 22.5871, 24.6404 )
-
-[node name="BooksMirror" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.43339, 1.25134, 0.588434 )
-
-[node name="Book 1" parent="BooksMirror" instance=ExtResource( 8 )]
-pixel_size = 0.017
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( 70.354, 157.646, 24.4933, 25.6597 )
-
-[node name="Book 2" parent="BooksMirror" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.659642 )
-pixel_size = 0.017
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( 101.128, 157.646, 21.9454, 23.7767 )
-
-[node name="Book 3" parent="BooksMirror" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.45174 )
-pixel_size = 0.017
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( 132.198, 157.581, 22.0737, 23.6137 )
-
-[node name="Book 4" parent="BooksMirror" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.11528 )
-pixel_size = 0.017
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( 159.919, 157.581, 22.5871, 24.6404 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.092475, 0, -0.995715, 0, 1, 0, 0.995715, 0, -0.092475, -4.91486, 0.472724, 1.6287 )
@@ -120,7 +77,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83293, 0.259, 1.502 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86507, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Fight/TriggerArea"]
-transform = Transform( 0.9, 0, 0, 0, 0.4, 0, 0, 0, 1.5, 0, 0, 0 )
+transform = Transform( 0.6, 0, 0, 0, 0.4, 0, 0, 0, 1.5, 0.303112, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="Camera" type="Camera" parent="Fight"]
@@ -141,7 +98,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape" type="CollisionShape" parent="Map"]
-transform = Transform( 100, 0, 0, 0, -1.62921e-05, 100, 0, -100, -1.62921e-05, 0, 0, 0 )
+transform = Transform( 100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 0, 0, 0 )
 shape = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
@@ -190,5 +147,320 @@ anims/bullet_freq = SubResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = "FX"
+
+[node name="Furniture" type="Spatial" parent="."]
+
+[node name="Plant" parent="Furniture" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5442, 1.24359, 0.524407 )
+pixel_size = 0.015
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 61.9064, 50.3794, 26.9803, 33.876 )
+
+[node name="Ducky" parent="Furniture" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39233, 1.1066, 0.25883 )
+pixel_size = 0.02
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 16.4951, 120.036, 13.2682, 10.7648 )
+
+[node name="DuckyMirror" parent="Furniture" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.392, 1.107, 0.259 )
+pixel_size = 0.02
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 16.4951, 120.036, 13.2682, 10.7648 )
+
+[node name="Tapete" parent="Furniture" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, -2.97849, 0.01, 0.375697 )
+pixel_size = 0.04
+texture = ExtResource( 11 )
+region_rect = Rect2( 61.9064, 50.3794, 26.9803, 33.876 )
+is_billboard = false
+
+[node name="TapeteMirror" parent="Furniture" instance=ExtResource( 8 )]
+transform = Transform( -1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 3.24, 0.01, 0.376 )
+pixel_size = 0.04
+texture = ExtResource( 11 )
+region_rect = Rect2( 61.9064, 50.3794, 26.9803, 33.876 )
+is_billboard = false
+
+[node name="PlantMirror" parent="Furniture" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.30391, 1.24333, 0.524407 )
+pixel_size = 0.015
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 61.9064, 50.3794, 26.9803, 31.3278 )
+
+[node name="Books" type="Spatial" parent="Furniture"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.45923, 1.24559, 0.610724 )
+
+[node name="Book 1" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049118, -0.0687234, -1.09116 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 70.354, 157.646, 24.4933, 25.6597 )
+
+[node name="Book 2" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0687234, -1.57188 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 101.128, 157.646, 21.9454, 23.7767 )
+
+[node name="Book 3" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0576134, -0.0687234, -1.81657 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 132.198, 157.581, 22.0737, 23.6137 )
+
+[node name="Book 4" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0687234, -2.35182 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 159.919, 157.581, 22.5871, 24.6404 )
+
+[node name="Book 5" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.188006, -0.0687234, -2.18212 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 70.354, 157.646, 24.4933, 25.6597 )
+
+[node name="Book 6" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0767426, -0.073931, -0.918898 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 101.128, 157.646, 21.9454, 23.7767 )
+
+[node name="Book 7" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0557594, -0.0643724, -1.3446 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 132.198, 157.581, 22.0737, 23.6137 )
+
+[node name="Book 8" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0687234, -2.00835 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 159.919, 157.581, 22.5871, 24.6404 )
+
+[node name="Book 9" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049346, 0.926286, -0.940089 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 70.354, 157.646, 24.4933, 25.6597 )
+
+[node name="Book 10" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115604, 0.94127, -1.58393 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 101.128, 157.646, 21.9454, 23.7767 )
+
+[node name="Book 11" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0691738, 0.94127, -1.92228 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 132.198, 157.581, 22.0737, 23.6137 )
+
+[node name="Book 12" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115604, 0.94127, -2.23215 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 159.919, 157.581, 22.5871, 24.6404 )
+
+[node name="Book 13" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047626, 0.918222, -1.22905 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 70.354, 157.646, 24.4933, 25.6597 )
+
+[node name="Book 14" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0651822, 0.936063, 0.0797647 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 101.128, 157.646, 21.9454, 23.7767 )
+
+[node name="Book 15" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044199, 0.945621, -0.295812 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 132.198, 157.581, 22.0737, 23.6137 )
+
+[node name="Book 16" parent="Furniture/Books" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115604, 0.94127, -0.636884 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 159.919, 157.581, 22.5871, 24.6404 )
+
+[node name="BooksMirror" type="Spatial" parent="Furniture"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.249, 1.246, 0.611 )
+
+[node name="Book 1" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049118, -0.0644925, -1.09116 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 70.354, 157.646, 24.4933, 25.6597 )
+
+[node name="Book 2" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0644925, -1.57188 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 101.128, 157.646, 21.9454, 23.7767 )
+
+[node name="Book 3" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0576134, -0.0644925, -1.81657 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 132.198, 157.581, 22.0737, 23.6137 )
+
+[node name="Book 4" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0644925, -2.35182 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 159.919, 157.581, 22.5871, 24.6404 )
+
+[node name="Book 5" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.188006, -0.0644925, -2.18212 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 70.354, 157.646, 24.4933, 25.6597 )
+
+[node name="Book 6" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0767426, -0.0697, -0.918898 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 101.128, 157.646, 21.9454, 23.7767 )
+
+[node name="Book 7" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0557594, -0.0601414, -1.3446 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 132.198, 157.581, 22.0737, 23.6137 )
+
+[node name="Book 8" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0644925, -2.00835 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 159.919, 157.581, 22.5871, 24.6404 )
+
+[node name="Book 9" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049346, 0.926286, -0.940089 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 70.354, 157.646, 24.4933, 25.6597 )
+
+[node name="Book 10" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115604, 0.94127, -1.58393 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 101.128, 157.646, 21.9454, 23.7767 )
+
+[node name="Book 11" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0691738, 0.94127, -1.92228 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 132.198, 157.581, 22.0737, 23.6137 )
+
+[node name="Book 12" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115604, 0.94127, -2.23215 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 159.919, 157.581, 22.5871, 24.6404 )
+
+[node name="Book 13" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047626, 0.918222, -1.22905 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 70.354, 157.646, 24.4933, 25.6597 )
+
+[node name="Book 14" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0651822, 0.936063, 0.0797647 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 101.128, 157.646, 21.9454, 23.7767 )
+
+[node name="Book 15" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044199, 0.945621, -0.295812 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 132.198, 157.581, 22.0737, 23.6137 )
+
+[node name="Book 16" parent="Furniture/BooksMirror" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115604, 0.94127, -0.636884 )
+pixel_size = 0.017
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 159.919, 157.581, 22.5871, 24.6404 )
+
+[node name="BedMirror" type="MeshInstance" parent="Furniture"]
+transform = Transform( 0.6, 0, 0, 0, 0.2, 0, 0, 0, 1.2, 3.5, 0.203, 3.626 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="Bed" type="StaticBody" parent="Furniture"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.019, 0.203, 3.626 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Furniture/Bed"]
+transform = Transform( 0.6, 0, 0, 0, 0.2, 0, 0, 0, 1.2, 0, 0, 0 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Furniture/Bed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00834846 )
+shape = SubResource( 7 )
+
+[node name="MCR" parent="Furniture" instance=ExtResource( 8 )]
+transform = Transform( -1.62821e-07, 5.68585e-09, -1, 0.0348995, 0.999391, 0, 0.999391, -0.0348995, -1.62921e-07, -0.0719473, 2.25695, -1.11554 )
+pixel_size = 0.015
+texture = ExtResource( 13 )
+is_billboard = false
+
+[node name="Urso" parent="Furniture" instance=ExtResource( 8 )]
+transform = Transform( -1.62301e-07, -1.41995e-08, -1, -0.0871557, 0.996195, 0, 0.996195, 0.0871557, -1.62921e-07, -0.131917, 1.6756, -0.632847 )
+pixel_size = 0.015
+texture = ExtResource( 14 )
+is_billboard = false
+
+[node name="Bowie" parent="Furniture" instance=ExtResource( 8 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -5.99147, 1.51487, 3.50616 )
+pixel_size = 0.025
+texture = ExtResource( 15 )
+is_billboard = false
+
+[node name="BowieMirror" parent="Furniture" instance=ExtResource( 8 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, -1, 0, 1.62921e-07, 5.991, 1.515, 3.506 )
+pixel_size = 0.025
+texture = ExtResource( 15 )
+is_billboard = false
 [connection signal="body_entered" from="Fight/TriggerArea" to="." method="_on_TriggerArea_body_entered"]
 [connection signal="animation_finished" from="TransitionAnimation" to="." method="_on_AnimationPlayer_animation_finished"]
