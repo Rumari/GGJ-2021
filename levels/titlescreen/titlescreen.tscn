@@ -11,46 +11,57 @@ flags = 4
 load_path = "res://.import/start_screen.png-769b7568853feeeea71294181472d1e6.stex"
 
 [sub_resource type="AtlasTexture" id=2]
+flags = 23
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=3]
+flags = 23
 atlas = ExtResource( 5 )
 region = Rect2( 385, 0, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=4]
+flags = 23
 atlas = ExtResource( 5 )
 region = Rect2( 770, 0, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=5]
+flags = 23
 atlas = ExtResource( 5 )
 region = Rect2( 1155, 0, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=6]
+flags = 23
 atlas = ExtResource( 5 )
 region = Rect2( 1540, 0, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=7]
+flags = 23
 atlas = ExtResource( 5 )
 region = Rect2( 0, 480, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=8]
+flags = 23
 atlas = ExtResource( 5 )
 region = Rect2( 385, 480, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=9]
+flags = 23
 atlas = ExtResource( 5 )
 region = Rect2( 770, 480, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=10]
+flags = 23
 atlas = ExtResource( 5 )
 region = Rect2( 1155, 480, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=11]
+flags = 23
 atlas = ExtResource( 5 )
 region = Rect2( 1540, 480, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=12]
+flags = 23
 atlas = ExtResource( 5 )
 region = Rect2( 0, 960, 385, 480 )
 
@@ -156,7 +167,7 @@ __meta__ = {
 position = Vector2( 97.5807, 111.723 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 13 )
-frame = 1
+frame = 5
 playing = true
 __meta__ = {
 "_edit_lock_": true
