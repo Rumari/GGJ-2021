@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=11 format=2]
+[gd_resource type="AudioBusLayout" load_steps=17 format=2]
 
 [sub_resource type="AudioEffectReverb" id=1]
 resource_name = "Reverb"
@@ -6,14 +6,23 @@ resource_name = "Reverb"
 [sub_resource type="AudioEffectStereoEnhance" id=2]
 resource_name = "StereoEnhance"
 
+[sub_resource type="AudioEffectSpectrumAnalyzer" id=12]
+resource_name = "SpectrumAnalyzer"
+
 [sub_resource type="AudioEffectReverb" id=3]
 resource_name = "Reverb"
+
+[sub_resource type="AudioEffectStereoEnhance" id=11]
+resource_name = "StereoEnhance"
 
 [sub_resource type="AudioEffectHighPassFilter" id=4]
 resource_name = "HighPassFilter"
 
 [sub_resource type="AudioEffectDelay" id=5]
 resource_name = "Delay"
+
+[sub_resource type="AudioEffectStereoEnhance" id=15]
+resource_name = "StereoEnhance"
 
 [sub_resource type="AudioEffectChorus" id=6]
 resource_name = "Chorus"
@@ -24,11 +33,20 @@ resource_name = "Reverb"
 [sub_resource type="AudioEffectLowPassFilter" id=8]
 resource_name = "LowPassFilter"
 
+[sub_resource type="AudioEffectStereoEnhance" id=14]
+resource_name = "StereoEnhance"
+
 [sub_resource type="AudioEffectReverb" id=9]
 resource_name = "Reverb"
 
 [sub_resource type="AudioEffectCompressor" id=10]
 resource_name = "Compressor"
+
+[sub_resource type="AudioEffectStereoEnhance" id=16]
+resource_name = "StereoEnhance"
+
+[sub_resource type="AudioEffectStereoEnhance" id=17]
+resource_name = "StereoEnhance"
 
 [resource]
 bus/0/volume_db = -0.526013
@@ -42,6 +60,8 @@ bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = 5.02899
 bus/1/send = "Master"
+bus/1/effect/0/effect = SubResource( 12 )
+bus/1/effect/0/enabled = true
 bus/2/name = "Maybe needed"
 bus/2/solo = false
 bus/2/mute = false
@@ -50,16 +70,20 @@ bus/2/volume_db = -24.9389
 bus/2/send = "FX"
 bus/2/effect/0/effect = SubResource( 3 )
 bus/2/effect/0/enabled = false
+bus/2/effect/1/effect = SubResource( 11 )
+bus/2/effect/1/enabled = true
 bus/3/name = "AudioBus4"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = -2.11252
+bus/3/volume_db = -5.04224
 bus/3/send = "Master"
 bus/3/effect/0/effect = SubResource( 4 )
 bus/3/effect/0/enabled = true
 bus/3/effect/1/effect = SubResource( 5 )
 bus/3/effect/1/enabled = true
+bus/3/effect/2/effect = SubResource( 15 )
+bus/3/effect/2/enabled = true
 bus/4/name = "AudioBus5"
 bus/4/solo = false
 bus/4/mute = false
@@ -72,6 +96,8 @@ bus/4/effect/1/effect = SubResource( 7 )
 bus/4/effect/1/enabled = true
 bus/4/effect/2/effect = SubResource( 8 )
 bus/4/effect/2/enabled = false
+bus/4/effect/3/effect = SubResource( 14 )
+bus/4/effect/3/enabled = true
 bus/5/name = "AudioBus6"
 bus/5/solo = false
 bus/5/mute = false
@@ -82,9 +108,13 @@ bus/5/effect/0/effect = SubResource( 9 )
 bus/5/effect/0/enabled = true
 bus/5/effect/1/effect = SubResource( 10 )
 bus/5/effect/1/enabled = true
+bus/5/effect/2/effect = SubResource( 16 )
+bus/5/effect/2/enabled = true
 bus/6/name = "AudioBus7"
 bus/6/solo = false
 bus/6/mute = false
 bus/6/bypass_fx = false
 bus/6/volume_db = 0.0
 bus/6/send = "Master"
+bus/6/effect/0/effect = SubResource( 17 )
+bus/6/effect/0/enabled = true
