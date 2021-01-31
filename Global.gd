@@ -4,6 +4,7 @@ var DaBaby = false
 var current_scene = null
 var old_scene = null
 var level = 0
+var on_text = false
 
 onready var root = get_tree().get_root()
 

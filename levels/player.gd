@@ -15,6 +15,9 @@ var time = 0.0
 var frame = 0
 
 func _physics_process(delta):
+	if Global.on_text:
+		return
+			
 	var movement = 0.0
 	if Input.is_action_pressed("forward"):
 		movement -= 1.0
