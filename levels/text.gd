@@ -18,6 +18,7 @@ func append_text(txt):
 func _ready():
 	$AnimationPlayer.play("fade")
 	$MarginContainer/Label.bbcode_text = ""
+	Global.on_text = true
 
 func _input(event):
 	if event.is_action_pressed("confirm"):
@@ -55,6 +56,7 @@ func _on_Timer_timeout():
 	
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if finished:
+		Global.on_text = false
 		emit_signal("closed")
 		queue_free()
 	else:

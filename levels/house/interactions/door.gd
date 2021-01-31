@@ -20,13 +20,10 @@ func run():
 		]
 	add_child(text)
 	text.connect("closed", self, "_on_Text_closed")
-	Global.on_text = true
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	Global.goto_scene(Scene.instance())
 
 func _on_Text_closed():
-	Global.on_text = false
-	text.queue_free()
 	if Global.level == 4:
 		$AnimationPlayer.play("fade")
