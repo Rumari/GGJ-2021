@@ -19,10 +19,11 @@ func _enter_tree():
 func _on_Timer_timeout():
 	text = Text.instance()
 	text.content = [
-		"[you remember where the key to your bedroom was]",
+		"[You remember where the key to your bedroom was]",
 		"[...]",
 		"[...]",
-		"[you find the key]"
+		"[...]",
+		"[You find the key]"
 	]
 	add_child(text)
 	text.connect("closed", self, "_on_Text_closed")

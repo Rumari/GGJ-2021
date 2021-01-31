@@ -2,7 +2,6 @@
 
 [ext_resource path="res://levels/house/interactable.gd" type="Script" id=2]
 
-
 [sub_resource type="CylinderShape" id=1]
 radius = 0.5
 height = 0.75525
