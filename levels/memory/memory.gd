@@ -121,6 +121,7 @@ func _process(delta):
 				text.connect("closed", self, "_on_Text_closed")
 				$FX3.set_stream(WinFX)
 				$FX3.play()
+				$AudioStreamPlayer.stop()
 			return
 			
 		var i = rng.randi_range(0, len(words) - 1)
