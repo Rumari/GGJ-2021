@@ -26,9 +26,6 @@ _data = {
 
 [node name="Memory" type="Node2D"]
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
 content = "Lorem ipsum blablablalga ap hgla glas yhdka mhjda mjs hmdjn hwma dwmaohm dagtajsitjwi jwi jrdo wjifow iwo jfowi jwi gjowd jifwj ow jwfoi jwdojw oi"
 average_bullet_velocity = 50.0
 velocity_bound = 0.25
@@ -51,7 +48,7 @@ __meta__ = {
 [node name="Transition" type="Node" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]
-modulate = Color( 0, 0, 0, 0.9 )
+modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
