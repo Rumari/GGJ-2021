@@ -25,10 +25,10 @@ func damage():
 	if health == 1:
 		emit_signal("game_over")
 		$Shield.texture = null
-		get_parent().get_node("AudioStreamPlayer2D").set_stream(GameOverFX)
-		get_parent().get_node("AudioStreamPlayer2D").play()
+		get_parent().get_node("FX4").set_stream(GameOverFX)
+		get_parent().get_node("FX4").play()
 	elif health > 1:
 		health -= 1
 		$Shield.texture = shield_textures[health - 1]
-		get_parent().get_node("AudioStreamPlayer2D").set_stream(HitFX)
-		get_parent().get_node("AudioStreamPlayer2D").play()
+		get_parent().get_node("FX4").set_stream(HitFX)
+		get_parent().get_node("FX4").play()

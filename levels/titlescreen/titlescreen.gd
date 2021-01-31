@@ -31,3 +31,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		get_tree().quit()
 	else:
 		$ColorRect.hide()
+
+func _on_Start_mouse_entered():
+	$FX.play()
+
+func _on_Exit_mouse_entered():
+	$FX.play()

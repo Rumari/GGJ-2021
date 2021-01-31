@@ -1,67 +1,68 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://levels/titlescreen/titlescreen.gd" type="Script" id=1]
 [ext_resource path="res://sprites/end_screen.png" type="Texture" id=2]
 [ext_resource path="res://m5x7.tres" type="DynamicFont" id=3]
 [ext_resource path="res://music/titlescreen.ogg" type="AudioStream" id=4]
 [ext_resource path="res://sprites/dababy.png" type="Texture" id=5]
+[ext_resource path="res://fx/mainmenu.wav" type="AudioStream" id=6]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
 load_path = "res://.import/start_screen.png-769b7568853feeeea71294181472d1e6.stex"
 
 [sub_resource type="AtlasTexture" id=2]
-flags = 23
+flags = 18
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=3]
-flags = 23
+flags = 18
 atlas = ExtResource( 5 )
 region = Rect2( 385, 0, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=4]
-flags = 23
+flags = 18
 atlas = ExtResource( 5 )
 region = Rect2( 770, 0, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=5]
-flags = 23
+flags = 18
 atlas = ExtResource( 5 )
 region = Rect2( 1155, 0, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=6]
-flags = 23
+flags = 18
 atlas = ExtResource( 5 )
 region = Rect2( 1540, 0, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=7]
-flags = 23
+flags = 18
 atlas = ExtResource( 5 )
 region = Rect2( 0, 480, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=8]
-flags = 23
+flags = 18
 atlas = ExtResource( 5 )
 region = Rect2( 385, 480, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=9]
-flags = 23
+flags = 18
 atlas = ExtResource( 5 )
 region = Rect2( 770, 480, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=10]
-flags = 23
+flags = 18
 atlas = ExtResource( 5 )
 region = Rect2( 1155, 480, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=11]
-flags = 23
+flags = 18
 atlas = ExtResource( 5 )
 region = Rect2( 1540, 480, 385, 480 )
 
 [sub_resource type="AtlasTexture" id=12]
-flags = 23
+flags = 18
 atlas = ExtResource( 5 )
 region = Rect2( 0, 960, 385, 480 )
 
@@ -167,7 +168,7 @@ __meta__ = {
 position = Vector2( 97.5807, 111.723 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 13 )
-frame = 7
+frame = 10
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -196,7 +197,13 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade = SubResource( 14 )
+
+[node name="FX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "AudioBus4"
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/Start" to="." method="_on_Start_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_Exit_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
