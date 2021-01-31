@@ -35,9 +35,11 @@ func _ready():
 	
 	if final:
 		started = true
-		$AudioStreamPlayer2D.stream = load("res://music/finalboss.ogg")
+		$AudioStreamPlayer.stream = load("res://music/finalboss.ogg")
+		$AudioStreamPlayer.play()
 		$Player.position = viewport_size / 2
 		$Player.make_final()
+		$Transition/ColorRect.hide()
 	else:
 		$AnimationPlayer.play("fade")		
 		$Player.position.x = viewport_size.x / 2
@@ -147,8 +149,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func _on_Text_closed():
 	Global.level += 1
 	$AnimationPlayer.play_backwards("fade")
+	$Transition/ColorRect.show()
+	
 	
 func _on_Player_game_over():
 	lost = true
 	$AnimationPlayer.play_backwards("fade")
-
+	$Transition/ColorRect.show()

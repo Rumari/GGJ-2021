@@ -59,7 +59,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[node name="Exploration" type="Spatial"]
+[node name="House" type="Spatial"]
 script = ExtResource( 10 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -88,7 +88,7 @@ __meta__ = {
 
 [node name="Door" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71021, 3.16435, 9.995 )
-interaction = NodePath("Door ")
+interaction = NodePath("../../House/Door/Door ")
 
 [node name="Door " parent="Door" instance=ExtResource( 4 )]
 transform = Transform( 100, 0, 0, 0, -1.62921e-05, 100, 0, -100, -1.62921e-05, -0.743294, 0.831736, 0 )
@@ -112,7 +112,7 @@ __meta__ = {
 
 [node name="Memory 1" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8338, 0.274374, 4.6327 )
-interaction = NodePath("Memory")
+interaction = NodePath("../../House/Memory 1/Memory")
 
 [node name="Memory" parent="Memory 1" instance=ExtResource( 5 )]
 memory_text = "memory one"
@@ -120,7 +120,7 @@ rot_speed = 2.0
 
 [node name="Memory 2" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.538199, 0.274374, -4.50699 )
-interaction = NodePath("Memory")
+interaction = NodePath("../../House/Memory 2/Memory")
 
 [node name="Memory" parent="Memory 2" instance=ExtResource( 5 )]
 memory_text = "memory two"
@@ -128,7 +128,7 @@ rot_speed = 2.0
 
 [node name="Memory 3" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2904, 0.98695, -7.1362 )
-interaction = NodePath("Memory")
+interaction = NodePath("../../House/Memory 3/Memory")
 
 [node name="Memory" parent="Memory 3" instance=ExtResource( 5 )]
 memory_text = "memory three"
@@ -136,7 +136,7 @@ rot_speed = 2.0
 
 [node name="Memory 4" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59945, 0.274374, -7.41808 )
-interaction = NodePath("Memory")
+interaction = NodePath("../../House/Memory 4/Memory")
 
 [node name="Memory" parent="Memory 4" instance=ExtResource( 5 )]
 memory_text = "memory four"
