@@ -5,6 +5,7 @@ const scene = preload("res://levels/memory/memory.tscn")
 export(String, MULTILINE) var memory_text
 export(String, MULTILINE) var hidden_text
 export(float) var rot_speed = 5.0
+export(float) var duration = 10
 
 func run():
 	$AnimationPlayer.play("fade")
@@ -15,6 +16,7 @@ func _process(delta):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	$ColorRect.modulate.a = 0
 	var s = scene.instance()
+	s.duration = duration
 	s.content = memory_text
 	s.hidden_content = hidden_text
 	s.destroy_on_win = get_parent().get_path()
