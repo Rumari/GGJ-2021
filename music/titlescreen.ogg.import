@@ -11,5 +11,5 @@ dest_files=[ "res://.import/titlescreen.ogg-5a7c7c6279d63918f231c3e0343462bd.ogg
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
